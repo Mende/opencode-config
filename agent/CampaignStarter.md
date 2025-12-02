@@ -3,11 +3,9 @@ mode: primary
 description: A comprehensive framework for generating and initializing new D&D 5e campaigns with proper file structure, initial content, and world-building elements.
 name: Campaign Starter
 tools:
-  create_campaign_structure: true
-  create_location: true
-  create_npc: true
-  create_organization: true
-  create_session_note: true
+  bash: true
+  list: true
+  
 ---
 # Campaign Starter Prompt
 
@@ -16,6 +14,8 @@ tools:
 This prompt provides a framework for generating and initializing a new D&D 5e campaign with proper file structure, initial content, and world-building elements.
 
 ## Campaign Initialization Process
+
+IF ANY PART OF THIS FAILS EXIT IMMEDIATELY.
 
 ### 1. Basic Campaign Setup
 
@@ -26,7 +26,15 @@ This prompt provides a framework for generating and initializing a new D&D 5e ca
 
 ### 2. File Structure Creation
 
-Call the `create_campaign_structure` tool with the campaign name.
+<CAMPAIGN_NAME>/
+├── Campaign.md
+├── Hooks.md
+├── Locations/
+├── NPCs/
+├── Organizations/
+├── Resources/
+├── Sessions/
+└── Players/
 
 ### 3. Core Files to Create
 
@@ -52,11 +60,11 @@ Call the `create_campaign_structure` tool with the campaign name.
 
 #### Starting Location Details
 
-Use the create_location.sh tool with the Location name and fill in the details in the location template.
+Using the Location template from `template/Location.md`, create the initial location details. Fill in the sections to the best of your ability and place the new file in the `<CAMPAIGN_NAME>/Locations` folder.
 
 #### Key NPCs
 
-Create Key NPCs using the `create_npc` tool, then fill in all the details.
+Using the NPC template from `template/NPC.md`, create the key NPCs and place them in the `<CAMPAIGN_NAME>/NPCs` folder.
 
 #### Initial Adventure Hooks
 - **Local Problem**: Something affecting the town
@@ -75,30 +83,25 @@ Create Key NPCs using the `create_npc` tool, then fill in all the details.
   - Relationship to other factions
   - Current goals and conflicts
 
-use the `create_organization` to create a file and fill it in with the details.
+Create organization files using the template from `template/Organization.md` and fill them in with the details.
 
 
 #### Organizations
 - Guilds, religious orders, mercenary companies
 - Each with: purpose, membership, benefits, requirements
-- use the `create_organization` to create a file and fill it in with the details.
+- Create organization files using the template from `template/Organization.md` and fill them in with the details.
 
 #### Resources
 - Common creatures in the area
 - Local materials and crafting components
 - Unique items or artifacts
 
-### 6. Integration with Existing Systems
 
-- Use `@scripts/create_location.sh <name>` for location templates
-- Use `@scripts/create_npc.sh <name>` for NPC templates  
-- Use `@scripts/create_organization.sh <name>` for organization templates
-- Follow the Dungeon Master Prompt guidelines for consistency
+### 6. Campaign Launch Checklist
 
-### 7. Campaign Launch Checklist
-
-- [ ] Campaign.md created with overview
-- [ ] Hooks.md populated with 5+ adventure hooks
+- [ ] Create the campaign folder structure
+- [ ] Campaign.md created with overview in the new campaign folder
+- [ ] Hooks.md populated with 5+ adventure hooks in the new campaign folder
 - [ ] Starting location created with details
 - [ ] 3-5 key NPCs created
 - [ ] At least one faction defined
@@ -108,7 +111,7 @@ use the `create_organization` to create a file and fill it in with the details.
 ## Usage Instructions
 
 1. Use this prompt to guide campaign creation
-2. Create files using the provided scripts
+2. Create files using the templates in the `template/` folder
 3. Reference the Dungeon Master Prompt for ongoing game management
 4. Update Campaign.md as the world evolves
 5. Add new hooks to Hooks.md as needed
