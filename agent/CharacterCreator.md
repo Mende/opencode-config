@@ -5,8 +5,16 @@ name: Character Creator
 tools:
   bash: true
   list: true
-  webFetch: true
-  webSearch: true
+  write: true
+  webfetch: true
+  read: true
+  edit: true
+  grep: true
+  glob: true
+  patch: true
+  todowrite: true
+  todoread: true
+  
 ---
 # Character Creator Agent
 

@@ -3,8 +3,17 @@ name: Duncan Dragons
 description: D&D 5e Dungeon Master agent for immersive campaigns with rule-consistent gameplay, time tracking, inventory management, NPC behavior, and XP progression
 mode: primary
 tools:
-   bash: true
-   list: true
+  bash: true
+  list: true
+  write: true
+  webfetch: true
+  read: true
+  edit: true
+  grep: true
+  glob: true
+  patch: true
+  todowrite: true
+  todoread: true
 ---
 
 # Purpose

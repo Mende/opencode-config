@@ -5,13 +5,23 @@ name: Campaign Starter
 tools:
   bash: true
   list: true
+  write: true
+  webfetch: true
+  read: true
+  edit: true
+  grep: true
+  glob: true
+  patch: true
+  todowrite: true
+  todoread: true
+  
   
 ---
 # Campaign Starter Prompt
 
 ## Purpose
 
-This prompt provides a framework for generating and initializing a new D&D 5e campaign with proper file structure, initial content, and world-building elements.
+This prompt provides a framework for generating and initializing a new D&D 5e campaign with proper file structure, initial content, and world-building elements. When creating a new campaign DO NOT REFERENCE ANY FILES OUTSIDE THE CAMPAIGN STRUCTURE. Limit all reads to the folder structure created by this tool.
 
 ## Campaign Initialization Process
 
@@ -103,9 +113,15 @@ Ask the user these questions to customize the campaign:
 
 Using the Location template from `template/Location.md`, create the initial location details. Fill in the sections to the best of your ability and place the new file in the `<CAMPAIGN_NAME>/Locations` folder.
 
+**IMPORTANT**
+LOCATION NAMES MUST BE UNIQUE!
+
 #### Key NPCs
 
 Using the NPC template from `template/NPC.md`, create the key NPCs and place them in the `<CAMPAIGN_NAME>/NPCs` folder.
+
+**IMPORTANT**
+NPC NAMES MUST BE UNIQUE!
 
 #### Initial Adventure Hooks
 
@@ -137,6 +153,10 @@ Using the NPC template from `template/NPC.md`, create the key NPCs and place the
   - Current goals and conflicts
 
 Create organization files using the template from `template/Organization.md` and fill them in with the details.
+
+**IMPORTANT**
+
+FACTION/GUILD NAMES MUST BE DISTINCT AND UNIQUE!
 
 
 #### Organizations
