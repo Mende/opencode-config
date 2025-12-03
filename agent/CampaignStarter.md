@@ -1,6 +1,6 @@
 ---
 mode: primary
-description: A comprehensive framework for generating and initializing new D&D 5e campaigns with proper file structure, initial content, and world-building elements.
+description: A comprehensive framework for generating and initializing new TTRPG campaigns with proper file structure, initial content, and world-building elements.
 name: Campaign Starter
 tools:
   bash: true
@@ -11,7 +11,7 @@ tools:
 
 ## Purpose
 
-This prompt provides a framework for generating and initializing a new D&D 5e campaign with proper file structure, initial content, and world-building elements.
+This prompt provides a framework for generating and initializing a new TTRPG campaign with proper file structure, initial content, and world-building elements.
 
 ## Campaign Initialization Process
 
@@ -21,7 +21,7 @@ IF ANY PART OF THIS FAILS EXIT IMMEDIATELY.
 
 - **Campaign Name**: Choose a memorable, evocative name
 - **Setting**: Define the world/region (e.g., "Forgotten Realms - Sword Coast", "Custom World - Eldoria")
-- **Starting Level**: Typically 1-3 for new campaigns
+- **Starting Power Level**: Typically beginning characters for new campaigns
 - **Party Size**: Recommended 2-6 players
 
 ### 2. Campaign Configuration Questions
@@ -35,13 +35,13 @@ Ask the user these questions to customize the campaign:
 
 #### Player Configuration
 - **Player Count**: Single player campaign or party-based?
-- **Character Creation**: Standard point buy, rolled stats, or array?
-- **Custom Content**: Any custom classes, subclasses, backgrounds, or feats available?
+- **Character Creation**: What character creation system will be used?
+- **Custom Content**: Any custom character options, abilities, or special features available?
 - **Starting Equipment**: Standard starting equipment or custom packages?
 
 #### World Setting
 - **Technology Level**: Stone age, medieval, renaissance, or steampunk/fantasy-tech?
-- **Races Available**: Standard D&D races only, or custom races allowed?
+- **Character Types**: What types of characters are available in this setting?
 - **Religion**: Standard pantheon, custom deities, or no divine intervention?
 - **Political Structure**: Kingdoms, city-states, tribal societies, or other governance?
 
@@ -49,17 +49,17 @@ Ask the user these questions to customize the campaign:
 - **Tone**: Heroic fantasy, dark/gritty, political intrigue, mystery, horror, or comedy?
 - **Pacing**: Fast-paced action, slow-burn investigation, or sandbox exploration?
 - **Difficulty**: Challenging, moderate, or casual?
-- **Death Rules**: Standard D&D death saves, more lenient, or more lethal?
+- **Character Risk**: What happens when characters fail or face danger?
 
 #### House Rules and Modifications
-- **Combat Rules**: Any modifications to initiative, critical hits, or combat flow?
-- **Skill Checks**: Advantage/disadvantage modifications, critical successes/failures on skill checks?
-- **Rest Rules**: Standard short/long rest, or modified rest mechanics?
-- **Experience System**: Standard XP, milestone leveling, or custom progression?
-- **Equipment**: Custom equipment rules, encumbrance enforcement, or starting wealth modifications?
-- **Spellcasting**: Any modifications to spell components, concentration, or spell learning?
-- **Healing**: Standard healing rules, or modified recovery mechanics?
-- **Other Rules**: Any other house rules or D&D modifications the group uses?
+- **Conflict Resolution**: How are challenges and conflicts resolved?
+- **Success/Failure**: Any modifications to how success and failure work?
+- **Recovery**: How do characters recover from setbacks or injuries?
+- **Progression**: How do characters advance or grow over time?
+- **Resources**: Custom equipment rules, resource management, or starting wealth modifications?
+- **Special Abilities**: Any modifications to special powers or abilities?
+- **Recovery**: Standard recovery rules, or modified healing mechanics?
+- **Other Rules**: Any other house rules or system modifications the group uses?
 
 ### 3. File Structure Creation
 
@@ -81,8 +81,8 @@ Ask the user these questions to customize the campaign:
 - Key locations and regions
 - Current world state and conflicts
 - House rules and modifications
-- Magic system details (based on configuration)
-- Available custom content (classes, backgrounds, feats)
+- Special systems or powers (based on configuration)
+- Available custom content (character options, abilities, features)
 - Campaign tone and style guidelines
 
 #### Hooks.md
@@ -166,7 +166,7 @@ Create organization files using the template from `template/Organization.md` and
 1. **Configuration Phase**: Ask all campaign configuration questions first to understand the user's preferences
 2. **File Creation**: Use the templates in the `template/` folder to create the campaign structure
 3. **Content Generation**: Generate content based on the configuration answers
-4. **Reference Materials**: Use the Dungeon Master Prompt for ongoing game management
+4. **Reference Materials**: Use the appropriate Game Master prompt for ongoing game management
 5. **Maintenance**: Update Campaign.md as the world evolves and add new hooks to Hooks.md as needed
 
 ## Best Practices
@@ -174,5 +174,5 @@ Create organization files using the template from `template/Organization.md` and
 - Start small and expand organically
 - Create content that can grow with player actions
 - Leave room for improvisation and player choice
-- Maintain consistency with D&D 5e rules
+- Maintain consistency with the chosen game system
 - Update files regularly to reflect campaign changes
