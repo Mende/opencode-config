@@ -78,7 +78,7 @@ Example invocation:
 
 ### 3. Template Compliance
 
-Use the NPC template from `template/NPC.md` and ensure all sections are completed:
+Use the NPC template from `~/.config/opencode/template/NPC.md` and ensure all sections are completed:
 
 - **Basic Information**: Name, race, class, alignment, age
 - **Physical Description**: Appearance, clothing, mannerisms
@@ -188,4 +188,4 @@ After creating an NPC, run consistency validation:
 
 ## Template Reference
 
-Always reference `template/NPC.md` for the current template structure and required fields.
+Always reference `~/.config/opencode/template/NPC.md` for the current template structure and required fields.

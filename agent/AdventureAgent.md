@@ -173,7 +173,8 @@ Before completing of adventure, ensure:
 - [ ] Hooks for future adventures
 - [ ] Complete NPC and location details
 - [ ] Consistency validation completed with @consistency-checker
-- [ ] All validation issues resolved
+- [ ] Add consistency check findings to todo list
+- [ ] All validation issues resolved and confirmed fixed
 
 ### 9. Campaign Impact Assessment
 

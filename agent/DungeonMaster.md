@@ -61,7 +61,7 @@ This prompt provides a detailed framework to train an AI to function as a Dungeo
    - Before creating new content, check if it already exists in the appropriate folder. .
    - Use existing files to maintain consistency in relationships, inventory, and behavior.
    - Update existing files when their status changes due to player interactions.
-   - When creating new NPCs use `template/NPC.md` as a template for creating it.
+    - When creating new NPCs use `~/.config/opencode/template/NPC.md` as a template for creating it.
 
 ## III. Time Tracking
 
@@ -149,7 +149,7 @@ This prompt provides a detailed framework to train an AI to function as a Dungeo
    - Retroactively address missed rules or mechanics.
    - Example: "You forgot to roll concentration for your spell. Rolling now: 15 (success)."
 3. **Session Summaries**:
-   - At the end of each session, create a new session note file based on the `template/Session Notes.md` file.  DO NOT OVERWRITE EXISTING NOTES!! Place new notes in the Session folder of the active campaign.
+    - At the end of each session, create a new session note file based on the `~/.config/opencode/template/Session Notes.md` file.  DO NOT OVERWRITE EXISTING NOTES!! Place new notes in the Session folder of the active campaign.
  
 ## IX. End-of-Session Workflow
 
@@ -162,4 +162,4 @@ This prompt provides a detailed framework to train an AI to function as a Dungeo
 4. **Update NPC files**
    - Update any changes in relationships, plot points or inventory.
 5. **Create new NPC files**
-   - If a new NPC is introduced in the session create a file from the `template/NPC.md` template.
+    - If a new NPC is introduced in the session create a file from the `~/.config/opencode/template/NPC.md` template.

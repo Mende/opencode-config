@@ -85,7 +85,7 @@ Example invocation:
 
 ### 3. Template Compliance
 
-Use the Organization template from `template/Organization.md` and ensure all sections are completed:
+Use the Organization template from `~/.config/opencode/template/Organization.md` and ensure all sections are completed:
 
 - **Basic Information**: Name, type, purpose, alignment, size
 - **Leadership and Structure**: Hierarchy, key members, decision making
@@ -233,4 +233,4 @@ After creating an organization, run consistency validation:
 
 ## Template Reference
 
-Always reference `template/Organization.md` for the current template structure and required fields.
+Always reference `~/.config/opencode/template/Organization.md` for the current template structure and required fields.

@@ -129,7 +129,7 @@ ONLY CREATE 1 LOCATION PER USE OF @location-creator!
 
 The Location Creator will handle:
 - Unique name generation using `@name-generator`
-- Template compliance with `template/Location.md`
+- Template compliance with `~/.config/opencode/template/Location.md`
 - Proper integration with campaign setting (reading only from campaign folder)
 - Consistency validation with `@consistency-checker`
 
@@ -157,7 +157,7 @@ ONLY CREATE 1 NPC PER USE OF @npc-creator!
 
 The NPC Creator will handle:
 - Unique name generation using `@name-generator`
-- Template compliance with `template/NPC.md`
+- Template compliance with `~/.config/opencode/template/NPC.md`
 - Proper integration with campaign setting (reading only from campaign folder)
 - Consistency validation with `@consistency-checker`
 
@@ -204,7 +204,7 @@ ONLY CREATE 1 ORGANIZATION PER USE OF @organization-creator!
 
 The Organization Creator will handle:
 - Unique name generation using `@name-generator`
-- Template compliance with `template/Organization.md`
+- Template compliance with `~/.config/opencode/template/Organization.md`
 - Proper integration with campaign setting (reading only from campaign folder)
 - Consistency validation with `@consistency-checker`
 
@@ -251,13 +251,14 @@ Example invocation:
 - [ ] All todo items completed (1 entity per agent use)
 - [ ] File structure verified
 - [ ] Consistency validation completed with @consistency-checker
-- [ ] All validation issues resolved
+- [ ] Add consistency check findings to todo list
+- [ ] All validation issues resolved and confirmed fixed
 - [ ] Initial session prepared
 
 ## Usage Instructions
 
 1. **Configuration Phase**: Ask all campaign configuration questions first to understand the user's preferences
-2. **File Creation**: Use the templates in the `template/` folder to create the campaign structure
+2. **File Creation**: Use the templates in the `~/.config/opencode/template/` folder to create the campaign structure
 3. **Content Generation**: Generate content based on the configuration answers
 4. **Agent Lock Enforcement**: Ensure all agents remain locked within the campaign folder structure and create files only in designated locations
 5. **Consistency Validation**: Use `@consistency-checker` to validate all created entities before finalizing

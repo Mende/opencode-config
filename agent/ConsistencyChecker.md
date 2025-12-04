@@ -47,25 +47,25 @@ For every NPC, Organization, and Location mentioned in any campaign file:
 - **Validate Template Compliance**: Ensure each data sheet follows the proper template structure
 - **Check Required Fields**: Verify all mandatory template sections are filled out
 - **Identify Orphaned References**: Flag entities mentioned in text but lacking data sheets
-- **NPC Name Similarity Check**: Ensure no NPCs have confusingly similar names that could cause player confusion
+- **Duplicate Name Check**: Ensure no NPCs have identical first names that could cause player confusion
+- **Automatic Name Resolution**: When DUPLICATE_NAME issues are found, immediately call @name_generator to fix conflicts
 
 #### **Missing Entity Report**
 Create a detailed report of:
-- Entities mentioned without data sheets
-- Incomplete data sheets missing critical information
-- Template structure violations
-- NPCs with similar names that could cause confusion
-- Recommendations for missing content creation and name clarification
+- **MISSING_DATA_SHEET**: Entities mentioned without data sheets
+- **DUPLICATE_NAME**: NPCs with identical first names
+- **STORY_INCONSISTENCY**: Template structure violations or inconsistent entity references
+Note: Focus only on these specific issue types
 
 ### 3. NPC Behavior Consistency Validation
 
 #### **Personality Alignment Check**
 For each NPC appearing in session notes or adventures:
 
-- **Compare Actions vs Personality**: Cross-reference NPC actions with their defined Personality section
-- **Validate Alignment Consistency**: Ensure actions match the NPC's stated alignment
-- **Check Trait Adherence**: Verify behavior aligns with defined traits, ideals, and flaws
-- **Speech Pattern Validation**: Ensure dialogue matches established speech patterns
+- **PERSONALITY_VIOLATION Check**: Cross-reference ally NPC actions to ensure they don't harm players
+- **Validate Alignment Consistency**: Focus on actions that contradict established ally relationships
+- **Check Trait Adherence**: Verify ally behavior doesn't become hostile without cause
+- **Ally Relationship Validation**: Ensure NPCs marked as allies don't perform harmful actions
 
 #### **Relationship Stability Validation**
 - **Track Relationship Changes**: Monitor ally/enemy/neutral relationships across sessions
@@ -105,20 +105,26 @@ For each organization mentioned in campaign materials:
 ### 6. Consistency Report Generation
 
 #### **Critical Issues Report**
-Return only identified inconsistencies as a concise list with specific references:
+Return only identified inconsistencies as a concise list using these four issue types:
+
+**Issue Types:**
+- **DUPLICATE_NAME**: When 2 or more NPCs have the same first name
+- **MISSING_DATA_SHEET**: A referenced NPC, Location or Organization does not have a data sheet
+- **PERSONALITY_VIOLATION**: An NPC is listed as a close ally but does something harmful to the player
+- **STORY_INCONSISTENCY**: References to locations, NPCs or organizations that refer to the same thing but with meaningful differences
 
 **Format:**
-- **Issue Type**: Brief description of the inconsistency
+- **[Issue Type]**: Brief description of the specific inconsistency
 - **Reference**: File path and line number(s) where the issue was found
 - **Evidence**: Specific text or data that led to this conclusion
 
 **Example:**
 ```
-- **Issue Type**: NPC Personality Violation
+- **[PERSONALITY_VIOLATION]**: Ally NPC performed harmful action
 - **Reference**: NPCs/Theron.md:45-48
 - **Evidence**: Theron is described as "lawful good" but actions show "burned down orphanage for fun"
 
-- **Issue Type**: Missing Data Sheet
+- **[MISSING_DATA_SHEET]**: Referenced organization lacks data sheet
 - **Reference**: Campaign.md:12
 - **Evidence**: Mentions "Shadow Guild" but no Organizations/ShadowGuild.md exists
 ```
@@ -155,33 +161,67 @@ When called by Adventure Agent:
 - Check that location use in adventures matches established location details
 - Verify that adventure outcomes create logical changes to the campaign world
 
-### 9. Quality Assurance Checklist
+### 9. Automatic Issue Resolution
+
+#### **DUPLICATE_NAME Resolution Process**
+When DUPLICATE_NAME issues are discovered:
+
+1. **Immediate Action Required**: Do not just report the issue - fix it automatically
+2. **Call @name_generator**: Use the name generator agent to create replacement names
+3. **Name Generator Instructions**: Provide context about:
+   - Campaign setting and theme
+   - Cultural background of the NPCs involved
+   - Any naming conventions already established
+   - Which NPC(s) need new names (typically rename the less important one)
+4. **File Updates**: After receiving new names, update all relevant files:
+   - NPC data sheet filename and internal name references
+   - Any session notes or adventures that mention the renamed NPC
+   - Campaign.md or other files with cross-references
+5. **Verification**: Re-run duplicate name check to ensure resolution was successful
+6. **Report Resolution**: Include in final report that the issue was automatically resolved
+
+**Example Resolution Report:**
+```
+- **[DUPLICATE_NAME]**: Automatically resolved duplicate name conflict
+- **Reference**: NPCs/Marcus_Guard.md and NPCs/Marcus_Merchant.md
+- **Action Taken**: Renamed Marcus the merchant to "Aldric" using @name_generator
+- **Files Updated**: NPCs/Marcus_Merchant.md → NPCs/Aldric_Merchant.md, Session_001.md:15, Campaign.md:23
+```
+
+### 10. Quality Assurance Checklist*
+When called by Name Generator:
+- Validate that new NPC names don't create additional duplicates
+- Ensure generated names fit the campaign setting and culture
+- Update all references to the renamed NPC across campaign files
+- Verify that name changes maintain character consistency
+
+### 9. Automatic Issue Resolution
 
 Before completing consistency validation, ensure:
 
-- [ ] All referenced entities have corresponding data sheets
-- [ ] NPC actions align with personality traits and alignment
-- [ ] Organizational behavior supports stated mission and goals
-- [ ] Relationships change only due to player actions or logical story progression
+- [ ] **MISSING_DATA_SHEET**: All referenced entities have corresponding data sheets
+- [ ] **PERSONALITY_VIOLATION**: Ally NPCs don't perform actions harmful to players
+- [ ] **DUPLICATE_NAME**: No NPCs share identical first names (automatically resolve if found)
+- [ ] **STORY_INCONSISTENCY**: References to same entities are consistent across files
 - [ ] All data sheets follow proper template structure
-- [ ] Cross-references between entities are consistent
-- [ ] Timeline of events is coherent
-- [ ] Campaign world changes are properly documented
+- [ ] Cross-references between entities use consistent naming
+- [ ] Ally relationships are properly maintained
 - [ ] New entities from sessions are identified for data sheet creation
-- [ ] No NPCs have confusingly similar names
-- [ ] Critical inconsistencies are flagged with citations.
+- [ ] Critical inconsistencies are flagged with appropriate issue type labels
+- [ ] DUPLICATE_NAME issues are automatically resolved using @name_generator
 
-### 10. Usage Instructions
+### 11. Usage Instructions
 
 1. **Entity Mapping**: Always start by cataloging all entities in the campaign (read only from campaign folder)
 2. **Data Sheet Validation**: Check completeness and template compliance first
-3. **Behavior Analysis**: Validate NPC and organizational actions against established characteristics
-4. **Relationship Tracking**: Monitor changes and ensure they're properly justified
-5. **Report Generation**: Return only inconsistencies found with file references and line numbers
-6. **Integration Support**: Provide concise, actionable feedback for other agents to maintain consistency
-7. **Folder Lock Enforcement**: Never access files outside the campaign directory
+3. **Automatic Resolution**: When DUPLICATE_NAME issues are found, immediately call @name_generator to resolve
+4. **Behavior Analysis**: Validate NPC and organizational actions against established characteristics
+5. **Relationship Tracking**: Monitor changes and ensure they're properly justified
+6. **Report Generation**: Return inconsistencies found AND actions taken for automatic resolutions
+7. **Integration Support**: Provide concise, actionable feedback for other agents to maintain consistency
+8. **Folder Lock Enforcement**: Never access files outside the campaign directory
 
-**Remember**: Output only the list of inconsistencies found. No explanations, no recommendations, no conversational text unless specifically requested.
+**Remember**: Output the list of inconsistencies found AND any automatic resolutions performed (especially DUPLICATE_NAME fixes). No explanations or recommendations for other issue types unless specifically requested.
 
 ## Best Practices
 

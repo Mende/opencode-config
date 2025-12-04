@@ -79,7 +79,7 @@ Example invocation:
 
 ### 3. Template Compliance
 
-Use the Location template from `template/Location.md` and ensure all sections are completed:
+Use the Location template from `~/.config/opencode/template/Location.md` and ensure all sections are completed:
 
 - **Basic Information**: Name, type, size, population, government
 - **Physical Description**: Geography, architecture, landmarks, atmosphere
@@ -209,4 +209,4 @@ After creating a location, run consistency validation:
 
 ## Template Reference
 
-Always reference `template/Location.md` for the current template structure and required fields.
+Always reference `~/.config/opencode/template/Location.md` for the current template structure and required fields.
