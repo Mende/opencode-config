@@ -116,12 +116,16 @@ Using the Location template from `template/Location.md`, create the initial loca
 **IMPORTANT**
 LOCATION NAMES MUST BE UNIQUE!
 
+**Name Generation**: Use `@name-generator` to create unique, thematically appropriate location names. Provide context about the location type, campaign setting, and existing names to avoid conflicts.
+
 #### Key NPCs
 
 Using the NPC template from `template/NPC.md`, create the key NPCs and place them in the `<CAMPAIGN_NAME>/NPCs` folder.
 
 **IMPORTANT**
 NPC NAMES MUST BE UNIQUE!
+
+**Name Generation**: Use `@name-generator` to create unique, culturally appropriate NPC names. Provide context about race, culture, role, and existing NPC names to ensure variety and avoid repetition.
 
 #### Initial Adventure Hooks
 
@@ -158,6 +162,8 @@ Create organization files using the template from `template/Organization.md` and
 
 FACTION/GUILD NAMES MUST BE DISTINCT AND UNIQUE!
 
+**Name Generation**: Use `@name-generator` to create unique, memorable organization names. Provide context about organization type, purpose, alignment, and existing organization names to ensure distinctiveness.
+
 
 #### Organizations
 - Guilds, religious orders, mercenary companies
@@ -170,7 +176,21 @@ FACTION/GUILD NAMES MUST BE DISTINCT AND UNIQUE!
 - Unique items or artifacts
 
 
-### 7. Campaign Launch Checklist
+### 7. Consistency Validation
+
+After creating all campaign content, run consistency validation:
+
+- **Invoke ConsistencyChecker**: Use `@consistency-checker` to validate all created entities
+- **Review Validation Report**: Check for any template compliance issues or similar NPC names  
+- **Address Issues**: Fix any problems identified by the ConsistencyChecker
+- **Final Verification**: Ensure all validation issues are resolved before campaign launch
+
+Example invocation:
+```
+@consistency-checker Please validate the newly created campaign for consistency issues, template compliance, and NPC name similarity.
+```
+
+### 8. Campaign Launch Checklist
 
 - [ ] Create the campaign folder structure
 - [ ] Campaign.md created with overview in the new campaign folder
@@ -179,6 +199,8 @@ FACTION/GUILD NAMES MUST BE DISTINCT AND UNIQUE!
 - [ ] 3-5 key NPCs created
 - [ ] At least one faction defined
 - [ ] File structure verified
+- [ ] Consistency validation completed with @consistency-checker
+- [ ] All validation issues resolved
 - [ ] Initial session prepared
 
 ## Usage Instructions
@@ -186,8 +208,9 @@ FACTION/GUILD NAMES MUST BE DISTINCT AND UNIQUE!
 1. **Configuration Phase**: Ask all campaign configuration questions first to understand the user's preferences
 2. **File Creation**: Use the templates in the `template/` folder to create the campaign structure
 3. **Content Generation**: Generate content based on the configuration answers
-4. **Reference Materials**: Use the Dungeon Master Prompt for ongoing game management
-5. **Maintenance**: Update Campaign.md as the world evolves and add new hooks to Hooks.md as needed
+4. **Consistency Validation**: Use `@consistency-checker` to validate all created entities before finalizing
+5. **Reference Materials**: Use the Dungeon Master Prompt for ongoing game management
+6. **Maintenance**: Update Campaign.md as the world evolves and add new hooks to Hooks.md as needed
 
 ## Best Practices
 
@@ -195,4 +218,5 @@ FACTION/GUILD NAMES MUST BE DISTINCT AND UNIQUE!
 - Create content that can grow with player actions
 - Leave room for improvisation and player choice
 - Maintain consistency with D&D 5e rules
+- Always run consistency validation with `@consistency-checker` before finalizing campaign
 - Update files regularly to reflect campaign changes

@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "@opencode-ai/plugin": "1.0.129"
+    "@opencode-ai/plugin": "1.0.132"
   },
   "devDependencies": {
     "@types/bun": "^1.3.3"
