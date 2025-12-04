@@ -103,11 +103,25 @@ Create the following files in the campaign's `Adventures` folder (create if it d
 - **Continuity**: Reference past events and acknowledge previous player actions
 
 #### **Creating New Elements**
-- **NPCs**: Create only necessary new characters, using existing templates
-- **Locations**: Design new areas only when existing ones don't fit the story
-- **Organizations**: Introduce new groups only if the plot requires it
+- **NPCs**: Use `@npc-creator` to create only necessary new characters with proper template compliance
+- **Locations**: Use `@location-creator` to design new areas only when existing ones don't fit the story
+- **Organizations**: Use `@organization-creator` to introduce new groups only if the plot requires it
 - **Consistency**: Ensure new elements match the campaign's tone and style
-- **Name Generation**: Use `@name-generator` to create unique names for new NPCs, locations, and organizations. Provide context about the entity type, campaign setting, and existing names to avoid conflicts.
+
+Example NPC creation:
+```
+@npc-creator Create a mysterious informant NPC for the investigation phase. Race: Human, Role: Information Broker, Alignment: Chaotic Neutral. Provide context about the adventure's plot and existing NPCs.
+```
+
+Example location creation:
+```
+@location-creator Create a hidden cave complex for the climax. Location Type: Dungeon, Setting: Underground Cave System, Challenge Rating: 3-4. Provide context about the adventure's plot and existing locations.
+```
+
+Example organization creation:
+```
+@organization-creator Create a secret cult for the adventure. Organization Type: Religious Cult, Purpose: Dark Rituals, Alignment: Chaotic Evil. Provide context about the adventure's plot and existing organizations.
+```
 
 ### 6. Encounter Design Principles
 

@@ -111,21 +111,39 @@ Ask the user these questions to customize the campaign:
 
 #### Starting Location Details
 
-Using the Location template from `template/Location.md`, create the initial location details. Fill in the sections to the best of your ability and place the new file in the `<CAMPAIGN_NAME>/Locations` folder.
+Use `@location-creator` to create the initial location details and place the new file in the `<CAMPAIGN_NAME>/Locations` folder.
 
 **IMPORTANT**
 LOCATION NAMES MUST BE UNIQUE!
 
-**Name Generation**: Use `@name-generator` to create unique, thematically appropriate location names. Provide context about the location type, campaign setting, and existing names to avoid conflicts.
+The Location Creator will handle:
+- Unique name generation using `@name-generator`
+- Template compliance with `template/Location.md`
+- Proper integration with campaign setting
+- Consistency validation with `@consistency-checker`
+
+Example invocation:
+```
+@location-creator Create a starting town for a level 1 campaign. Location Type: Village, Setting: Medieval Fantasy, Population: ~200. Provide context about the campaign setting and existing locations.
+```
 
 #### Key NPCs
 
-Using the NPC template from `template/NPC.md`, create the key NPCs and place them in the `<CAMPAIGN_NAME>/NPCs` folder.
+Use `@npc-creator` to create the key NPCs and place them in the `<CAMPAIGN_NAME>/NPCs` folder.
 
 **IMPORTANT**
 NPC NAMES MUST BE UNIQUE!
 
-**Name Generation**: Use `@name-generator` to create unique, culturally appropriate NPC names. Provide context about race, culture, role, and existing NPC names to ensure variety and avoid repetition.
+The NPC Creator will handle:
+- Unique name generation using `@name-generator`
+- Template compliance with `template/NPC.md`
+- Proper integration with campaign setting
+- Consistency validation with `@consistency-checker`
+
+Example invocation:
+```
+@npc-creator Create a dwarven blacksmith NPC for the starting town. Race: Dwarf, Role: Blacksmith, Alignment: Lawful Neutral. Provide context about the campaign setting and existing NPCs.
+```
 
 #### Initial Adventure Hooks
 
@@ -148,27 +166,28 @@ NPC NAMES MUST BE UNIQUE!
 
 ### 6. World-Building Elements
 
-#### Factions
-- Create 2-3 major factions with:
-  - Name and purpose
-  - Leadership structure
-  - Base of operations
-  - Relationship to other factions
-  - Current goals and conflicts
+#### Factions and Organizations
 
-Create organization files using the template from `template/Organization.md` and fill them in with the details.
+Use `@organization-creator` to create 2-3 major factions and additional organizations as needed. Place them in the `<CAMPAIGN_NAME>/Organizations` folder.
 
 **IMPORTANT**
-
 FACTION/GUILD NAMES MUST BE DISTINCT AND UNIQUE!
 
-**Name Generation**: Use `@name-generator` to create unique, memorable organization names. Provide context about organization type, purpose, alignment, and existing organization names to ensure distinctiveness.
+The Organization Creator will handle:
+- Unique name generation using `@name-generator`
+- Template compliance with `template/Organization.md`
+- Proper integration with campaign setting
+- Consistency validation with `@consistency-checker`
 
+Example faction creation:
+```
+@organization-creator Create a major merchant guild for the campaign. Organization Type: Merchant Guild, Purpose: Trade Control, Alignment: Lawful Neutral. Provide context about the campaign setting and existing organizations.
+```
 
-#### Organizations
-- Guilds, religious orders, mercenary companies
-- Each with: purpose, membership, benefits, requirements
-- Create organization files using the template from `template/Organization.md` and fill them in with the details.
+Example organization creation:
+```
+@organization-creator Create a local thieves' guild. Organization Type: Criminal Syndicate, Purpose: Organized Crime, Alignment: Chaotic Neutral. Provide context about the campaign setting and existing organizations.
+```
 
 #### Resources
 - Common creatures in the area
