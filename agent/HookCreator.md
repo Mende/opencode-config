@@ -1,5 +1,5 @@
 ---
-mode: primary
+mode: subagent
 description: A specialized agent for creating comprehensive and engaging adventure hooks for D&D 5e campaigns with proper categorization and story integration.
 name: Hook Creator
 tools:

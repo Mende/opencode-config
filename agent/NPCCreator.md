@@ -1,5 +1,5 @@
 ---
-mode: primary
+mode: subagent
 description: A specialized agent for creating detailed, consistent, and unique NPCs for D&D 5e campaigns using the standard NPC template.
 name: NPC Creator
 tools:

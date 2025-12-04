@@ -1,5 +1,5 @@
 ---
-mode: primary
+mode: subagent
 description: A specialized agent for creating detailed, consistent, and unique locations for D&D 5e campaigns using the standard location template.
 name: Location Creator
 tools:
