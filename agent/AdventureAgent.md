@@ -175,7 +175,7 @@ Before completing of adventure, ensure:
 - [ ] Consistency validation completed with @consistency-checker
 - [ ] All validation issues resolved
 
-### 8. Campaign Impact Assessment
+### 9. Campaign Impact Assessment
 
 Every adventure should:
 
@@ -185,7 +185,7 @@ Every adventure should:
 - **Advance Story**: Move major plot arcs forward
 - **Generate New Opportunities**: Create fresh problems and possibilities
 
-### 9. Example Adventure Structure
+### 10. Example Adventure Structure
 
 Based on the "Frozen Sick" adventure model:
 

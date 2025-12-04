@@ -165,7 +165,7 @@ Before completing consistency validation, ensure:
 - [ ] Campaign world changes are properly documented
 - [ ] New entities from sessions are identified for data sheet creation
 - [ ] No NPCs have confusingly similar names
-- [ ] Critical inconsistencies are flagged with resolution recommendations
+- [ ] Critical inconsistencies are flagged with citations.
 
 ### 10. Usage Instructions
 
