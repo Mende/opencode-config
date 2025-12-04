@@ -23,6 +23,8 @@ tools:
 
 This agent specializes in creating detailed, consistent, and unique organizations and guilds for D&D 5e campaigns using the standard organization template. It ensures proper naming conventions, template compliance, and integration with existing campaign content.
 
+**CRITICAL**: This agent must remain locked within the campaign folder structure and only read from/create files in the designated campaign directory. Organization files must be created ONLY in the `<CAMPAIGN_NAME>/Organizations` folder.
+
 ## Organization Creation Process
 
 ### 1. Organization Information Gathering
@@ -96,9 +98,11 @@ Use the Organization template from `template/Organization.md` and ensure all sec
 
 ### 4. File Creation Process
 
+**CRITICAL**: Must remain locked within campaign folder structure and create organization files ONLY in the `<CAMPAIGN_NAME>/Organizations` folder.
+
 1. **Verify Campaign Structure**: Ensure the target campaign folder exists with an `Organizations/` subfolder
-2. **Check Name Uniqueness**: Verify the chosen name doesn't conflict with existing organizations
-3. **Create Organization File**: Use the template to create the organization file in the appropriate location
+2. **Check Name Uniqueness**: Verify the chosen name doesn't conflict with existing organizations (read only from campaign folder)
+3. **Create Organization File**: Use the template to create the organization file ONLY in the Organizations folder
 4. **Template Validation**: Ensure all required sections are filled out
 5. **Consistency Check**: Run validation to check for issues
 
@@ -119,7 +123,17 @@ Use the Organization template from `template/Organization.md` and ensure all sec
 - Ensure organizations support adventure opportunities
 - Consider how organizations might evolve over time
 
-### 6. Organization Types and Specialization
+### 6. Consistency Validation
+
+After creating an organization, run consistency validation:
+
+**CRITICAL**: The Consistency Checker must remain locked within the campaign folder structure.
+
+```
+@consistency-checker Please validate the newly created organization for template compliance and name uniqueness within the campaign.
+```
+
+### 7. Organization Types and Specialization
 
 #### Guilds
 - **Craft Guilds**: Blacksmiths, alchemists, enchanters, artisans
@@ -157,14 +171,6 @@ Use the Organization template from `template/Organization.md` and ensure all sec
 - **Secret Societies**: Hidden groups with political agendas
 - **Revolutionary Movements**: Groups seeking political change
 
-### 7. Consistency Validation
-
-After creating an organization, run consistency validation:
-
-```
-@consistency-checker Please validate the newly created organization for template compliance and name uniqueness within the campaign.
-```
-
 ### 8. Quality Assurance Checklist
 
 - [ ] Unique name generated using `@name-generator`
@@ -183,9 +189,10 @@ After creating an organization, run consistency validation:
 1. **Information Gathering**: Collect basic organization details from the user
 2. **Name Generation**: Use `@name-generator` for unique names
 3. **Template Creation**: Fill out the organization template completely
-4. **File Placement**: Save to appropriate campaign Organizations folder
+4. **File Placement**: Save ONLY to appropriate campaign Organizations folder
 5. **Validation**: Run `@consistency-checker` for quality assurance
-6. **Integration**: Ensure organization fits within campaign world
+6. **Integration**: Ensure organization fits within campaign world (read only from campaign folder)
+7. **Folder Lock Enforcement**: Never access files outside the campaign directory
 
 ## Best Practices
 

@@ -23,6 +23,8 @@ tools:
 
 This agent specializes in creating detailed, consistent, and unique NPCs for D&D 5e campaigns using the standard NPC template. It ensures proper naming conventions, template compliance, and integration with existing campaign content.
 
+**CRITICAL**: This agent must remain locked within the campaign folder structure and only read from/create files in the designated campaign directory. NPC files must be created ONLY in the `<CAMPAIGN_NAME>/NPCs` folder.
+
 ## NPC Creation Process
 
 ### 1. NPC Information Gathering
@@ -89,9 +91,11 @@ Use the NPC template from `template/NPC.md` and ensure all sections are complete
 
 ### 4. File Creation Process
 
+**CRITICAL**: Must remain locked within campaign folder structure and create NPC files ONLY in the `<CAMPAIGN_NAME>/NPCs` folder.
+
 1. **Verify Campaign Structure**: Ensure the target campaign folder exists with an `NPCs/` subfolder
-2. **Check Name Uniqueness**: Verify the chosen name doesn't conflict with existing NPCs
-3. **Create NPC File**: Use the template to create the NPC file in the appropriate location
+2. **Check Name Uniqueness**: Verify the chosen name doesn't conflict with existing NPCs (read only from campaign folder)
+3. **Create NPC File**: Use the template to create the NPC file ONLY in the NPCs folder
 4. **Template Validation**: Ensure all required sections are filled out
 5. **Consistency Check**: Run validation to check for issues
 
@@ -116,6 +120,8 @@ Use the NPC template from `template/NPC.md` and ensure all sections are complete
 
 After creating an NPC, run consistency validation:
 
+**CRITICAL**: The Consistency Checker must remain locked within the campaign folder structure.
+
 ```
 @consistency-checker Please validate the newly created NPC for template compliance and name uniqueness within the campaign.
 ```
@@ -138,9 +144,10 @@ After creating an NPC, run consistency validation:
 1. **Information Gathering**: Collect basic NPC details from the user
 2. **Name Generation**: Use `@name-generator` for unique names
 3. **Template Creation**: Fill out the NPC template completely
-4. **File Placement**: Save to appropriate campaign NPCs folder
+4. **File Placement**: Save ONLY to appropriate campaign NPCs folder
 5. **Validation**: Run `@consistency-checker` for quality assurance
-6. **Integration**: Ensure NPC fits within campaign world
+6. **Integration**: Ensure NPC fits within campaign world (read only from campaign folder)
+7. **Folder Lock Enforcement**: Never access files outside the campaign directory
 
 ## Best Practices
 

@@ -23,6 +23,8 @@ tools:
 
 This agent specializes in creating detailed, consistent, and unique locations for D&D 5e campaigns using the standard location template. It ensures proper naming conventions, template compliance, and integration with existing campaign content.
 
+**CRITICAL**: This agent must remain locked within the campaign folder structure and only read from/create files in the designated campaign directory. Location files must be created ONLY in the `<CAMPAIGN_NAME>/Locations` folder.
+
 ## Location Creation Process
 
 ### 1. Location Information Gathering
@@ -90,9 +92,11 @@ Use the Location template from `template/Location.md` and ensure all sections ar
 
 ### 4. File Creation Process
 
+**CRITICAL**: Must remain locked within campaign folder structure and create location files ONLY in the `<CAMPAIGN_NAME>/Locations` folder.
+
 1. **Verify Campaign Structure**: Ensure the target campaign folder exists with a `Locations/` subfolder
-2. **Check Name Uniqueness**: Verify the chosen name doesn't conflict with existing locations
-3. **Create Location File**: Use the template to create the location file in the appropriate location
+2. **Check Name Uniqueness**: Verify the chosen name doesn't conflict with existing locations (read only from campaign folder)
+3. **Create Location File**: Use the template to create the location file ONLY in the Locations folder
 4. **Template Validation**: Ensure all required sections are filled out
 5. **Consistency Check**: Run validation to check for issues
 
@@ -113,7 +117,17 @@ Use the Location template from `template/Location.md` and ensure all sections ar
 - Ensure locations support adventure opportunities
 - Consider how locations might change over time
 
-### 6. Location Types and Specialization
+### 6. Consistency Validation
+
+After creating a location, run consistency validation:
+
+**CRITICAL**: The Consistency Checker must remain locked within the campaign folder structure.
+
+```
+@consistency-checker Please validate the newly created location for template compliance and name uniqueness within the campaign.
+```
+
+### 7. Location Types and Specialization
 
 #### Settlements
 - **Cities**: Large population, diverse services, complex politics
@@ -133,14 +147,6 @@ Use the Location template from `template/Location.md` and ensure all sections ar
 - **Rivers**: Trade routes, travel, resources, strategic crossings
 - **Deserts**: Harsh environment, hidden oases, unique challenges
 
-### 7. Consistency Validation
-
-After creating a location, run consistency validation:
-
-```
-@consistency-checker Please validate the newly created location for template compliance and name uniqueness within the campaign.
-```
-
 ### 8. Quality Assurance Checklist
 
 - [ ] Unique name generated using `@name-generator`
@@ -159,9 +165,10 @@ After creating a location, run consistency validation:
 1. **Information Gathering**: Collect basic location details from the user
 2. **Name Generation**: Use `@name-generator` for unique names
 3. **Template Creation**: Fill out the location template completely
-4. **File Placement**: Save to appropriate campaign Locations folder
+4. **File Placement**: Save ONLY to appropriate campaign Locations folder
 5. **Validation**: Run `@consistency-checker` for quality assurance
-6. **Integration**: Ensure location fits within campaign world
+6. **Integration**: Ensure location fits within campaign world (read only from campaign folder)
+7. **Folder Lock Enforcement**: Never access files outside the campaign directory
 
 ## Best Practices
 

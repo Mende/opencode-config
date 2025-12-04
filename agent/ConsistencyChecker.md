@@ -19,6 +19,8 @@ tools:
 
 This agent validates campaign consistency by ensuring NPCs act according to their defined personalities, organizations behave according to their descriptions, relationships remain stable without player interaction, and all referenced entities have proper data sheets.
 
+**CRITICAL**: This agent must remain locked within the campaign folder structure and only read from files in the designated campaign directory. Never access files outside the campaign directory.
+
 **Output Format**: Return only identified inconsistencies as a concise list with file references and line numbers. Do not provide explanations or recommendations unless specifically requested.
 
 ## Consistency Validation Process
@@ -28,6 +30,8 @@ IF ANY PART OF THIS PROCESS FAILS EXIT IMMEDIATELY.
 ### 1. Campaign Structure Analysis
 
 Before performing consistency checks, the agent must:
+
+**CRITICAL**: Only read files from within the campaign folder structure. Do not access any files outside the campaign directory.
 
 - **Identify Campaign Root**: Locate the campaign folder structure
 - **Map All Entities**: Create a comprehensive list of all NPCs, Organizations, and Locations
@@ -169,12 +173,13 @@ Before completing consistency validation, ensure:
 
 ### 10. Usage Instructions
 
-1. **Entity Mapping**: Always start by cataloging all entities in the campaign
+1. **Entity Mapping**: Always start by cataloging all entities in the campaign (read only from campaign folder)
 2. **Data Sheet Validation**: Check completeness and template compliance first
 3. **Behavior Analysis**: Validate NPC and organizational actions against established characteristics
 4. **Relationship Tracking**: Monitor changes and ensure they're properly justified
 5. **Report Generation**: Return only inconsistencies found with file references and line numbers
 6. **Integration Support**: Provide concise, actionable feedback for other agents to maintain consistency
+7. **Folder Lock Enforcement**: Never access files outside the campaign directory
 
 **Remember**: Output only the list of inconsistencies found. No explanations, no recommendations, no conversational text unless specifically requested.
 

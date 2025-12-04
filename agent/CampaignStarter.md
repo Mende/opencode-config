@@ -21,7 +21,9 @@ tools:
 
 ## Purpose
 
-This prompt provides a framework for generating and initializing a new D&D 5e campaign with proper file structure, initial content, and world-building elements. When creating a new campaign DO NOT REFERENCE ANY FILES OUTSIDE THE CAMPAIGN STRUCTURE. Limit all reads to the folder structure created by this tool.
+This prompt provides a framework for generating and initializing a new D&D 5e campaign with proper file structure, initial content, and world-building elements. 
+
+**CRITICAL**: When creating a new campaign DO NOT REFERENCE ANY FILES OUTSIDE THE CAMPAIGN STRUCTURE. Limit all reads to the folder structure created by this tool. All agents must remain locked within the newly created campaign folder structure and ensure all files/artifacts are created in the correct locations.
 
 ## Campaign Initialization Process
 
@@ -73,15 +75,17 @@ Ask the user these questions to customize the campaign:
 
 ### 3. File Structure Creation
 
+**CRITICAL**: All agents must remain locked within this campaign structure and only create files in their designated folders.
+
 <CAMPAIGN_NAME>/
 ├── Campaign.md
 ├── Hooks.md
-├── Locations/
-├── NPCs/
-├── Organizations/
-├── Resources/
-├── Sessions/
-└── Players/
+├── Locations/          # Only @location-creator creates files here
+├── NPCs/              # Only @npc-creator creates files here
+├── Organizations/     # Only @organization-creator creates files here
+├── Resources/         # Campaign-specific resources
+├── Sessions/          # Only @dungeon-master creates files here
+└── Players/           # Only @character-creator creates files here
 
 ### 4. Core Files to Create
 
@@ -96,51 +100,73 @@ Ask the user these questions to customize the campaign:
 - Campaign tone and style guidelines
 
 #### Hooks.md
-- **Major Story Arcs** (1-2): Campaign-spanning adventures with multiple phases
-- **Side Quest Hooks** (5-10): Smaller, self-contained adventures
-- **Faction-Specific Opportunities**: Quests tied to major factions
-- **Location-Based Encounters**: Hooks tied to specific areas
-- **Character-Specific Hooks**: Personal quests for individual players
+
+Use `@hook-creator` to create comprehensive adventure hooks for the campaign. 
+
+**CRITICAL**: The Hook Creator must remain locked within the campaign folder structure and create the Hooks.md file ONLY in the campaign root directory.
+
+The Hook Creator will handle:
+- Campaign analysis and integration (reading only from campaign folder)
+- Proper categorization of hooks (major arcs, side quests, faction-specific, location-based)
+- Detailed hook structure with setup, investigation, and resolution
+- Integration with existing NPCs, locations, and organizations
+- Appropriate challenge levels for the party
+
+Example invocation:
+```
+@hook-creator Create adventure hooks for a new campaign. Campaign has medieval fantasy setting, starting village of 200 people, party level 1-3. Provide context about campaign themes and existing elements.
+```
 
 #### Starting Location
-- Create at least one starting town/location
-- Include key NPCs, shops, and points of interest
-- Define local politics and current events
 
-### 5. Initial Content Generation
+Create a todo list to create each location individually using `@location-creator`. 
 
-#### Starting Location Details
-
-Use `@location-creator` to create the initial location details and place the new file in the `<CAMPAIGN_NAME>/Locations` folder.
+**CRITICAL**: The Location Creator must remain locked within the campaign folder structure and create location files ONLY in the `<CAMPAIGN_NAME>/Locations` folder.
 
 **IMPORTANT**
 LOCATION NAMES MUST BE UNIQUE!
+ONLY CREATE 1 LOCATION PER USE OF @location-creator!
 
 The Location Creator will handle:
 - Unique name generation using `@name-generator`
 - Template compliance with `template/Location.md`
-- Proper integration with campaign setting
+- Proper integration with campaign setting (reading only from campaign folder)
 - Consistency validation with `@consistency-checker`
 
-Example invocation:
+Example todo list items:
+- Create starting village for the campaign
+- Create nearby dungeon for adventure
+- Create surrounding forest region
+
+Example invocation for each location:
+```
+@location-creator Create a starting town for a level 1 campaign. Location Type: Village, Setting: Medieval Fantasy, Population: ~200. Provide context about the campaign setting and existing locations.
 ```
 @location-creator Create a starting town for a level 1 campaign. Location Type: Village, Setting: Medieval Fantasy, Population: ~200. Provide context about the campaign setting and existing locations.
 ```
 
 #### Key NPCs
 
-Use `@npc-creator` to create the key NPCs and place them in the `<CAMPAIGN_NAME>/NPCs` folder.
+Create a todo list to create each key NPC individually using `@npc-creator`. 
+
+**CRITICAL**: The NPC Creator must remain locked within the campaign folder structure and create NPC files ONLY in the `<CAMPAIGN_NAME>/NPCs` folder.
 
 **IMPORTANT**
 NPC NAMES MUST BE UNIQUE!
+ONLY CREATE 1 NPC PER USE OF @npc-creator!
 
 The NPC Creator will handle:
 - Unique name generation using `@name-generator`
 - Template compliance with `template/NPC.md`
-- Proper integration with campaign setting
+- Proper integration with campaign setting (reading only from campaign folder)
 - Consistency validation with `@consistency-checker`
 
-Example invocation:
+Example todo list items:
+- Create dwarven blacksmith NPC for the starting town
+- Create human innkeeper NPC for the tavern
+- Create elven shopkeeper NPC for the general store
+
+Example invocation for each NPC:
 ```
 @npc-creator Create a dwarven blacksmith NPC for the starting town. Race: Dwarf, Role: Blacksmith, Alignment: Lawful Neutral. Provide context about the campaign setting and existing NPCs.
 ```
@@ -168,25 +194,28 @@ Example invocation:
 
 #### Factions and Organizations
 
-Use `@organization-creator` to create 2-3 major factions and additional organizations as needed. Place them in the `<CAMPAIGN_NAME>/Organizations` folder.
+Create a todo list to create each organization individually using `@organization-creator`. 
+
+**CRITICAL**: The Organization Creator must remain locked within campaign folder structure and create organization files ONLY in the `<CAMPAIGN_NAME>/Organizations` folder.
 
 **IMPORTANT**
 FACTION/GUILD NAMES MUST BE DISTINCT AND UNIQUE!
+ONLY CREATE 1 ORGANIZATION PER USE OF @organization-creator!
 
 The Organization Creator will handle:
 - Unique name generation using `@name-generator`
 - Template compliance with `template/Organization.md`
-- Proper integration with campaign setting
+- Proper integration with campaign setting (reading only from campaign folder)
 - Consistency validation with `@consistency-checker`
 
-Example faction creation:
+Example todo list items:
+- Create major merchant guild for the campaign
+- Create local thieves' guild
+- Create knightly order for the region
+
+Example invocation for each organization:
 ```
 @organization-creator Create a major merchant guild for the campaign. Organization Type: Merchant Guild, Purpose: Trade Control, Alignment: Lawful Neutral. Provide context about the campaign setting and existing organizations.
-```
-
-Example organization creation:
-```
-@organization-creator Create a local thieves' guild. Organization Type: Criminal Syndicate, Purpose: Organized Crime, Alignment: Chaotic Neutral. Provide context about the campaign setting and existing organizations.
 ```
 
 #### Resources
@@ -198,6 +227,8 @@ Example organization creation:
 ### 7. Consistency Validation
 
 After creating all campaign content, run consistency validation:
+
+**CRITICAL**: The Consistency Checker must remain locked within the campaign folder structure and only read from the campaign directory.
 
 - **Invoke ConsistencyChecker**: Use `@consistency-checker` to validate all created entities
 - **Review Validation Report**: Check for any template compliance issues or similar NPC names  
@@ -213,10 +244,11 @@ Example invocation:
 
 - [ ] Create the campaign folder structure
 - [ ] Campaign.md created with overview in the new campaign folder
-- [ ] Hooks.md populated with 5+ adventure hooks in the new campaign folder
-- [ ] Starting location created with details
-- [ ] 3-5 key NPCs created
-- [ ] At least one faction defined
+- [ ] Hooks.md created using @hook-creator with comprehensive adventure hooks
+- [ ] Todo list created for starting locations
+- [ ] Todo list created for key NPCs
+- [ ] Todo list created for organizations
+- [ ] All todo items completed (1 entity per agent use)
 - [ ] File structure verified
 - [ ] Consistency validation completed with @consistency-checker
 - [ ] All validation issues resolved
@@ -227,9 +259,10 @@ Example invocation:
 1. **Configuration Phase**: Ask all campaign configuration questions first to understand the user's preferences
 2. **File Creation**: Use the templates in the `template/` folder to create the campaign structure
 3. **Content Generation**: Generate content based on the configuration answers
-4. **Consistency Validation**: Use `@consistency-checker` to validate all created entities before finalizing
-5. **Reference Materials**: Use the Dungeon Master Prompt for ongoing game management
-6. **Maintenance**: Update Campaign.md as the world evolves and add new hooks to Hooks.md as needed
+4. **Agent Lock Enforcement**: Ensure all agents remain locked within the campaign folder structure and create files only in designated locations
+5. **Consistency Validation**: Use `@consistency-checker` to validate all created entities before finalizing
+6. **Reference Materials**: Use the Dungeon Master Prompt for ongoing game management
+7. **Maintenance**: Update Campaign.md as the world evolves and add new hooks to Hooks.md as needed
 
 ## Best Practices
 
