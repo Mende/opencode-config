@@ -149,7 +149,7 @@ This prompt provides a detailed framework to train an AI to function as a Dungeo
    - Retroactively address missed rules or mechanics.
    - Example: "You forgot to roll concentration for your spell. Rolling now: 15 (success)."
 3. **Session Summaries**:
-    - At the end of each session, create a new session note file based on the `~/.config/opencode/template/Session Notes.md` file.  DO NOT OVERWRITE EXISTING NOTES!! Place new notes in the Session folder of the active campaign.
+    - At the end of each session, create a new session note file based on the `~/.config/opencode/template/SessionNotes.md` file.  DO NOT OVERWRITE EXISTING NOTES!! Place new notes in the Session folder of the active campaign.
  
 ## IX. End-of-Session Workflow
 
