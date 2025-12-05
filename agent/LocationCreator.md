@@ -214,3 +214,37 @@ After creating a location, run consistency validation:
 ## Template Reference
 
 Always reference `~/.config/opencode/template/Location.md` for the current template structure and required fields.
+
+## Completion Status
+
+At the end of every location creation, return one of the following completion statuses:
+
+**COMPLETED SUCCESSFULLY**: If location was created successfully and saved to Locations folder
+
+**FAILED [REASON]**: If location creation could not be completed due to:
+- **NAME_GENERATION_FAILURE**: @name-generator failed to provide a unique name
+- **TEMPLATE_VIOLATION**: Unable to complete all required template fields
+- **FILE_WRITE_ERROR**: Unable to create or save location file in Locations folder
+- **CAMPAIGN_ACCESS_ERROR**: Unable to read campaign context for integration
+- **INTEGRATION_FAILURE**: Unable to properly integrate location with campaign setting
+
+**COMPLETED WITH ISSUES**: If location was created but some problems were encountered:
+- Limited campaign context available for integration
+- Some template fields may need manual completion
+- Location may need manual review for consistency
+
+**Example completion outputs:**
+```
+COMPLETED SUCCESSFULLY
+- Created: Locations/Shadowfen_Marsh.md
+- Generated unique name: Shadowfen Marsh
+- Template fully completed with all required fields
+- Properly integrated with campaign geography and politics
+```
+
+```
+FAILED NAME_GENERATION_FAILURE
+- @name-generator unable to provide unique name
+- Existing location names too similar: Blackfen, Darkfen
+- Please provide more specific context or existing location names
+```

@@ -47,7 +47,7 @@ Ask the user these questions to customize the campaign:
 
 #### Player Configuration
 - **Player Count**: Single player campaign or party-based?
-- **Character Creation**: Standard point buy, rolled stats, or array?
+- **Character Creation**: Use @character-creator for guided character creation - Standard point buy, rolled stats, or array?
 - **Custom Content**: Any custom classes, subclasses, backgrounds, or feats available?
 - **Starting Equipment**: Standard starting equipment or custom packages?
 
@@ -85,7 +85,7 @@ Ask the user these questions to customize the campaign:
 ├── Organizations/     # Only @organization-creator creates files here
 ├── Resources/         # Campaign-specific resources
 ├── Sessions/          # Only @dungeon-master creates files here
-└── Players/           # Only @character-creator creates files here
+└── Players/           # Only @Character Creator creates files here
 
 ### 4. Core Files to Create
 
@@ -261,9 +261,10 @@ Example invocation:
 2. **File Creation**: Use the templates in the `~/.config/opencode/template/` folder to create the campaign structure
 3. **Content Generation**: Generate content based on the configuration answers
 4. **Agent Lock Enforcement**: Ensure all agents remain locked within the campaign folder structure and create files only in designated locations
-5. **Consistency Validation**: Use `@consistency-checker` to validate all created entities before finalizing
-6. **Reference Materials**: Use the Dungeon Master Prompt for ongoing game management
-7. **Maintenance**: Update Campaign.md as the world evolves and add new hooks to Hooks.md as needed
+5. **Character Creation**: Use @Character Creator for guided player character creation
+6. **Consistency Validation**: Use `@consistency-checker` to validate all created entities before finalizing
+7. **Reference Materials**: Use the Dungeon Master Prompt for ongoing game management
+8. **Maintenance**: Update Campaign.md as the world evolves and add new hooks to Hooks.md as needed
 
 ## Best Practices
 

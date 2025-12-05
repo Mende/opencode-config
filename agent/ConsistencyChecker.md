@@ -227,6 +227,42 @@ Before completing consistency validation, ensure:
 
 **Remember**: Output the list of inconsistencies found AND any automatic resolutions performed (especially DUPLICATE_NAME fixes). No explanations or recommendations for other issue types unless specifically requested.
 
+## Completion Status
+
+At the end of every validation, return one of the following completion statuses:
+
+**COMPLETED SUCCESSFULLY**: If validation completed without critical errors and all automatic resolutions were successful
+
+**FAILED [REASON]**: If validation could not be completed due to:
+- **CRITICAL_ERROR**: Unable to access campaign files or folder structure
+- **TEMPLATE_VIOLATION**: Found critical template compliance issues that could not be auto-resolved
+- **NAME_GENERATION_FAILURE**: @name_generator failed to resolve duplicate name conflicts
+- **VALIDATION_INTERRUPTED**: Process was interrupted before completion
+
+**COMPLETED WITH ISSUES**: If validation completed but found unresolved inconsistencies (excluding automatically resolved DUPLICATE_NAME issues)
+
+**Example completion outputs:**
+```
+COMPLETED SUCCESSFULLY
+- Validated 15 NPCs, 8 organizations, 12 locations
+- Automatically resolved 2 DUPLICATE_NAME issues
+- No critical inconsistencies found
+```
+
+```
+COMPLETED WITH ISSUES
+- Validated 15 NPCs, 8 organizations, 12 locations  
+- Found 3 PERSONALITY_VIOLATION issues
+- Found 1 MISSING_DATA_SHEET issue
+- Automatically resolved 1 DUPLICATE_NAME issue
+```
+
+```
+FAILED CRITICAL_ERROR
+- Unable to access campaign folder structure
+- Permission denied reading NPCs directory
+```
+
 ## Best Practices
 
 - **Concise Output**: Return only identified inconsistencies with file references and line numbers

@@ -238,3 +238,39 @@ After creating an organization, run consistency validation:
 ## Template Reference
 
 Always reference `~/.config/opencode/template/Organization.md` for the current template structure and required fields.
+
+## Completion Status
+
+At the end of every organization creation, return one of the following completion statuses:
+
+**COMPLETED SUCCESSFULLY**: If organization was created successfully and saved to Organizations folder
+
+**FAILED [REASON]**: If organization creation could not be completed due to:
+- **NAME_GENERATION_FAILURE**: @name-generator failed to provide a unique name
+- **TEMPLATE_VIOLATION**: Unable to complete all required template fields
+- **FILE_WRITE_ERROR**: Unable to create or save organization file in Organizations folder
+- **CAMPAIGN_ACCESS_ERROR**: Unable to read campaign context for integration
+- **CONSISTENCY_CHECK_FAILURE**: @consistency-checker found critical issues that could not be resolved
+- **INTEGRATION_FAILURE**: Unable to properly integrate organization with campaign setting
+
+**COMPLETED WITH ISSUES**: If organization was created but some problems were encountered:
+- Limited campaign context available for integration
+- Some template fields may need manual completion
+- Consistency checker found minor issues that need manual review
+
+**Example completion outputs:**
+```
+COMPLETED SUCCESSFULLY
+- Created: Organizations/Shadow_Guild.md
+- Generated unique name: Shadow Guild
+- Template fully completed with all required fields
+- Consistency validation passed
+- Properly integrated with campaign politics and existing NPCs
+```
+
+```
+FAILED NAME_GENERATION_FAILURE
+- @name-generator unable to provide unique name
+- Existing organization names too similar: Shadow Syndicate, Dark Guild
+- Please provide more specific context or existing organization names
+```

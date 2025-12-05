@@ -191,3 +191,30 @@ This agent should be invoked whenever the CampaignStarter needs to generate name
 Note: Use "name" (singular) not "names" - this agent generates one name at a time only.
 
 Always provide sufficient context for optimal name generation results.
+
+## Completion Status
+
+At the end of every name generation, return one of the following completion statuses:
+
+**COMPLETED SUCCESSFULLY**: If name was generated successfully and meets all criteria
+
+**FAILED [REASON]**: If name generation could not be completed due to:
+- **INSUFFICIENT_CONTEXT**: Not enough information provided about entity type, setting, or cultural influences
+- **CONFLICT_DETECTION**: Unable to generate unique name due to too many existing similar names
+- **INVALID_REQUEST**: Request was for multiple names or unclear entity type
+- **CONTEXT_MISMATCH**: Provided context is contradictory or impossible to reconcile
+
+**Example completion outputs:**
+```
+COMPLETED SUCCESSFULLY
+Generated: Tharon (thay-ron)
+Entity: Male elf ranger
+Context: Celtic forest culture
+```
+
+```
+FAILED INSUFFICIENT_CONTEXT
+- No entity type specified (NPC, location, or organization)
+- No cultural or setting information provided
+- Please specify race/class for NPC or terrain type for location
+```

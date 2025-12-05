@@ -193,3 +193,39 @@ After creating an NPC, automatically run consistency validation:
 ## Template Reference
 
 Always reference `~/.config/opencode/template/NPC.md` for the current template structure and required fields.
+
+## Completion Status
+
+At the end of every NPC creation, return one of the following completion statuses:
+
+**COMPLETED SUCCESSFULLY**: If NPC was created successfully and saved to NPCs folder
+
+**FAILED [REASON]**: If NPC creation could not be completed due to:
+- **NAME_GENERATION_FAILURE**: @name-generator failed to provide a unique name
+- **TEMPLATE_VIOLATION**: Unable to complete all required template fields
+- **FILE_WRITE_ERROR**: Unable to create or save NPC file in NPCs folder
+- **CAMPAIGN_ACCESS_ERROR**: Unable to read campaign context for integration
+- **CONSISTENCY_CHECK_FAILURE**: @consistency-checker found critical issues that could not be resolved
+- **INTEGRATION_FAILURE**: Unable to properly integrate NPC with campaign setting
+
+**COMPLETED WITH ISSUES**: If NPC was created but some problems were encountered:
+- Limited campaign context available for integration
+- Some template fields may need manual completion
+- Consistency checker found minor issues that need manual review
+
+**Example completion outputs:**
+```
+COMPLETED SUCCESSFULLY
+- Created: NPCs/Theron_Blacksmith.md
+- Generated unique name: Theron (thay-ron)
+- Template fully completed with all required fields
+- Consistency validation passed
+- Properly integrated with starting town location
+```
+
+```
+FAILED NAME_GENERATION_FAILURE
+- @name-generator unable to provide unique name
+- Existing NPC names too similar: Aaron, Karen
+- Please provide more specific context or existing NPC names
+```

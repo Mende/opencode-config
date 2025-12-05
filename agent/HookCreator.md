@@ -283,3 +283,37 @@ Each hook should include:
 ### 10. Template Reference
 
 Always create hooks that can be easily expanded into full adventures using the Adventure Agent when players choose to pursue them.
+
+## Completion Status
+
+At the end of every hook creation session, return one of the following completion statuses:
+
+**COMPLETED SUCCESSFULLY**: If hooks were created successfully and Hooks.md file was saved properly
+
+**FAILED [REASON]**: If hook creation could not be completed due to:
+- **CAMPAIGN_ACCESS_ERROR**: Unable to read campaign files or access campaign directory
+- **INSUFFICIENT_CONTEXT**: Not enough campaign information provided to create relevant hooks
+- **FILE_WRITE_ERROR**: Unable to create or save Hooks.md file in campaign root
+- **TEMPLATE_VIOLATION**: Generated hooks do not follow required structure or format
+- **INTEGRATION_FAILURE**: Unable to integrate hooks with existing campaign elements
+
+**COMPLETED WITH ISSUES**: If hooks were created but some problems were encountered:
+- Limited campaign context available
+- Some hooks may need manual integration review
+- Template structure partially incomplete
+
+**Example completion outputs:**
+```
+COMPLETED SUCCESSFULLY
+- Created Hooks.md in campaign root directory
+- Generated 2 major story arcs, 8 side quests, 3 faction hooks
+- All hooks properly integrated with existing NPCs and locations
+- Template structure validated and complete
+```
+
+```
+FAILED CAMPAIGN_ACCESS_ERROR
+- Unable to access campaign directory
+- Permission denied reading Campaign.md
+- Cannot proceed without campaign context
+```
