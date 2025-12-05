@@ -2,6 +2,10 @@
 mode: primary
 description: An agent that expands on campaign hooks with proper narrative structure, creating complete adventures with introduction, deepening plot, climax, and conclusion.
 name: Adventure Agent
+permission:
+  edit: allow
+  read: allow
+  external_directory: allow
 tools:
   bash: true
   list: true

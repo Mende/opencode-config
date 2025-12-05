@@ -2,6 +2,10 @@
 mode: subagent
 description: A specialized agent for creating detailed, consistent, and unique locations for D&D 5e campaigns using the standard location template.
 name: Location Creator
+permission:
+  edit: allow
+  read: allow
+  external_directory: allow
 tools:
   bash: true
   list: true

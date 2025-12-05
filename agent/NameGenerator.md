@@ -2,6 +2,10 @@
 mode: subagent
 description: A specialized agent for generating unique, creative, and thematically appropriate names for campaigns including NPCs, Locations, and Organizations. Generates one name at a time only.
 name: Name Generator
+permission:
+  edit: allow
+  read: allow
+  external_directory: allow
 tools:
   list: true
   bash: true

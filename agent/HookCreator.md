@@ -2,6 +2,10 @@
 mode: subagent
 description: A specialized agent for creating comprehensive and engaging adventure hooks for D&D 5e campaigns with proper categorization and story integration.
 name: Hook Creator
+permission:
+  edit: allow
+  read: allow
+  external_directory: allow
 tools:
   bash: true
   list: true

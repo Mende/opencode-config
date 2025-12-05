@@ -2,6 +2,10 @@
 mode: primary
 description: An interactive agent that guides users through D&D 5e character creation and fills in the Player.md template with their choices.
 name: Character Creator
+permission:
+  edit: allow
+  read: allow
+  external_directory: allow
 tools:
   bash: true
   list: true

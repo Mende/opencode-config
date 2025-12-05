@@ -2,6 +2,10 @@
 mode: subagent
 description: A specialized agent for creating detailed, consistent, and unique organizations and guilds for D&D 5e campaigns using the standard organization template.
 name: Organization Creator
+permission:
+  edit: allow
+  read: allow
+  external_directory: allow
 tools:
   bash: true
   list: true

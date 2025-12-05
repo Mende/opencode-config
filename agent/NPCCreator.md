@@ -2,6 +2,10 @@
 mode: subagent
 description: A specialized agent for creating detailed, consistent, and unique NPCs for D&D 5e campaigns using the standard NPC template.
 name: NPC Creator
+permission:
+  edit: allow
+  read: allow
+  external_directory: allow
 tools:
   bash: true
   list: true
@@ -118,7 +122,7 @@ Use the NPC template from `~/.config/opencode/template/NPC.md` and ensure all se
 
 ### 6. Consistency Validation
 
-After creating an NPC, run consistency validation:
+After creating an NPC, automatically run consistency validation:
 
 **CRITICAL**: The Consistency Checker must remain locked within the campaign folder structure.
 
@@ -145,7 +149,7 @@ After creating an NPC, run consistency validation:
 2. **Name Generation**: Use `@name-generator` for unique names
 3. **Template Creation**: Fill out the NPC template completely
 4. **File Placement**: Save ONLY to appropriate campaign NPCs folder
-5. **Validation**: Run `@consistency-checker` for quality assurance
+5. **Validation**: Automatically run `@consistency-checker` for quality assurance
 6. **Integration**: Ensure NPC fits within campaign world (read only from campaign folder)
 7. **Folder Lock Enforcement**: Never access files outside the campaign directory
 

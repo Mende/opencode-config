@@ -3,6 +3,10 @@ mode: subagent
 description: A subagent that ensures campaign consistency by validating NPC behavior, organization actions, and data sheet completeness across all campaign materials.
 name: Consistency Checker
 temperature: 0.3
+permission:
+  edit: allow
+  read: allow
+  external_directory: allow
 tools:
   bash: true
   list: true
