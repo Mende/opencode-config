@@ -36,7 +36,34 @@ IF ANY PART OF THIS FAILS EXIT IMMEDIATELY.
 - **Starting Level**: Typically 1-3 for new campaigns
 - **Party Size**: Recommended 2-6 players
 
-### 2. Campaign Configuration Questions
+### 2. File Structure Creation
+
+**CRITICAL**: All agents must remain locked within this campaign structure and only create files in their designated folders.
+
+#### Directory Creation Command
+
+Create the campaign directory structure using the campaign name converted to PascalCase:
+
+```bash
+# Convert campaign name to PascalCase and create directory structure
+CAMPAIGN_NAME="Your Campaign Name"
+PASCAL_CASE=$(echo "$CAMPAIGN_NAME" | sed 's/[^a-zA-Z0-9 ]//g' | sed 's/\b\([a-z]\)/\u\1/g' | sed 's/ //g')
+mkdir -p "$PASCAL_CASE"/{Locations,NPCs,Organizations,Resources,Sessions,Players}
+```
+
+#### Directory Structure
+
+<CAMPAIGN_NAME>/
+├── Campaign.md
+├── Hooks.md
+├── Locations/          # Only @location-creator creates files here
+├── NPCs/              # Only @npc-creator creates files here
+├── Organizations/     # Only @organization-creator creates files here
+├── Resources/         # Campaign-specific resources
+├── Sessions/          # Only @dungeon-master creates files here
+└── Players/           # Only @Character Creator creates files here
+
+### 3. Campaign Configuration Questions
 
 Ask the user these questions to customize the campaign:
 
@@ -73,21 +100,7 @@ Ask the user these questions to customize the campaign:
 - **Healing**: Standard healing rules, or modified recovery mechanics?
 - **Other Rules**: Any other house rules or D&D modifications the group uses?
 
-### 3. File Structure Creation
-
-**CRITICAL**: All agents must remain locked within this campaign structure and only create files in their designated folders.
-
-<CAMPAIGN_NAME>/
-├── Campaign.md
-├── Hooks.md
-├── Locations/          # Only @location-creator creates files here
-├── NPCs/              # Only @npc-creator creates files here
-├── Organizations/     # Only @organization-creator creates files here
-├── Resources/         # Campaign-specific resources
-├── Sessions/          # Only @dungeon-master creates files here
-└── Players/           # Only @Character Creator creates files here
-
-### 4. Core Files to Create
+### 5. Core Files to Create
 
 #### Campaign.md
 - Campaign overview and premise
@@ -117,7 +130,7 @@ Example invocation:
 @hook-creator Create adventure hooks for a new campaign. Campaign has medieval fantasy setting, starting village of 200 people, party level 1-3. Provide context about campaign themes and existing elements.
 ```
 
-#### Starting Location
+### 6. Starting Locations
 
 Create a todo list to create each location individually using `@location-creator`. 
 
@@ -145,7 +158,7 @@ Example invocation for each location:
 @location-creator Create a starting town for a level 1 campaign. Location Type: Village, Setting: Medieval Fantasy, Population: ~200. Provide context about the campaign setting and existing locations.
 ```
 
-#### Key NPCs
+### 7. Key NPCs
 
 Create a todo list to create each key NPC individually using `@npc-creator`. 
 
@@ -171,7 +184,7 @@ Example invocation for each NPC:
 @npc-creator Create a dwarven blacksmith NPC for the starting town. Race: Dwarf, Role: Blacksmith, Alignment: Lawful Neutral. Provide context about the campaign setting and existing NPCs.
 ```
 
-#### Initial Adventure Hooks
+### 8. Initial Adventure Hooks
 
 **Major Story Arcs** (Create 1-2):
 - **Epic Threat**: A world-ending danger that grows over time
@@ -190,7 +203,7 @@ Example invocation for each NPC:
 - **Investigation**: Mystery that needs solving
 - **Rescue Mission**: Someone needs to be saved from danger
 
-### 6. World-Building Elements
+### 9. World-Building Elements
 
 #### Factions and Organizations
 
@@ -224,7 +237,7 @@ Example invocation for each organization:
 - Unique items or artifacts
 
 
-### 7. Consistency Validation
+### 10. Consistency Validation
 
 After creating all campaign content, run consistency validation:
 
@@ -240,7 +253,7 @@ Example invocation:
 @consistency-checker Please validate the newly created campaign for consistency issues, template compliance, and NPC name similarity.
 ```
 
-### 8. Campaign Launch Checklist
+### 11. Campaign Launch Checklist
 
 - [ ] Create the campaign folder structure
 - [ ] Campaign.md created with overview in the new campaign folder
@@ -258,13 +271,14 @@ Example invocation:
 ## Usage Instructions
 
 1. **Configuration Phase**: Ask all campaign configuration questions first to understand the user's preferences
-2. **File Creation**: Use the templates in the `~/.config/opencode/template/` folder to create the campaign structure
-3. **Content Generation**: Generate content based on the configuration answers
-4. **Agent Lock Enforcement**: Ensure all agents remain locked within the campaign folder structure and create files only in designated locations
-5. **Character Creation**: Use @Character Creator for guided player character creation
-6. **Consistency Validation**: Use `@consistency-checker` to validate all created entities before finalizing
-7. **Reference Materials**: Use the Dungeon Master Prompt for ongoing game management
-8. **Maintenance**: Update Campaign.md as the world evolves and add new hooks to Hooks.md as needed
+2. **File Structure Creation**: Create the campaign directory structure using PascalCase conversion
+3. **File Creation**: Use the templates in the `~/.config/opencode/template/` folder to create the campaign structure
+4. **Content Generation**: Generate content based on the configuration answers
+5. **Agent Lock Enforcement**: Ensure all agents remain locked within the campaign folder structure and create files only in designated locations
+6. **Character Creation**: Use @Character Creator for guided player character creation
+7. **Consistency Validation**: Use `@consistency-checker` to validate all created entities before finalizing
+8. **Reference Materials**: Use the Dungeon Master Prompt for ongoing game management
+9. **Maintenance**: Update Campaign.md as the world evolves and add new hooks to Hooks.md as needed
 
 ## Best Practices
 
