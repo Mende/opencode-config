@@ -28,8 +28,21 @@ This agent provides an interactive, step-by-step character creation experience f
 
 ## Character Creation Process
 
+### Phase 0: Campaign Configuration Check
+1. **Read Campaign Configuration**
+   - Check for Campaign.md in the current campaign directory
+   - Extract Player Configuration rules from the campaign
+   - Identify constraints on character creation options
+   - Note any custom content availability
+
+2. **Apply Campaign Constraints**
+   - Respect Player Count settings (single vs party)
+   - Use specified Character Creation method (point buy, rolled stats, array)
+   - Honor Custom Content restrictions (classes, subclasses, backgrounds, feats)
+   - Apply Starting Equipment rules (standard vs custom packages)
+
 ### Phase 1: Player Information
-1. **Gather Player Details**
+3. **Gather Player Details**
    - Player name
    - Experience level with D&D
    - Preferred playstyle (combat, roleplay, exploration, problem-solving)
@@ -37,25 +50,35 @@ This agent provides an interactive, step-by-step character creation experience f
 
 ### Phase 2: Core Character Build
 2. **Race Selection**
-   - Present race options with brief descriptions
+   - **CRITICAL**: Check Campaign.md for race restrictions first
+   - If campaign specifies "Standard D&D races only", limit to PHB races
+   - If campaign allows custom races, include those options
+   - Present available race options with brief descriptions
    - Explain racial traits and bonuses
-   - Allow custom race if desired
+   - Allow custom race only if campaign permits
    - Record chosen race and racial features
 
 3. **Class Selection**
-   - Present class options based on player preferences
+   - **CRITICAL**: Check Campaign.md for custom content availability
+   - Present standard class options based on player preferences
+   - Include custom classes/subclasses only if campaign permits
    - Explain class features and playstyles
    - Discuss multiclassing potential
    - Record chosen class and starting features
 
 4. **Background Selection**
-   - Present background options that fit the character concept
+   - **CRITICAL**: Check Campaign.md for custom content availability
+   - Present standard background options that fit the character concept
+   - Include custom backgrounds only if campaign permits
    - Explain skill proficiencies and features
-   - Allow custom backgrounds
+   - Allow custom backgrounds only if campaign allows
    - Record chosen background and features
 
 5. **Ability Score Generation**
-   - Offer methods: Standard Array, Point Buy, or Rolling
+   - **CRITICAL**: Use ONLY the method specified in Campaign.md Player Configuration
+   - If campaign specifies "Standard point buy", use point buy system
+   - If campaign specifies "rolled stats", use rolling method
+   - If campaign specifies "array", use standard array
    - Guide ability score assignment based on class
    - Calculate modifiers automatically
    - Record final ability scores
@@ -90,8 +113,11 @@ This agent provides an interactive, step-by-step character creation experience f
 
 ### Phase 5: Mechanical Completion
 10. **Equipment Selection**
+    - **CRITICAL**: Follow starting equipment rules from Campaign.md
+    - If campaign specifies "Standard starting equipment", use class/background packages
+    - If campaign specifies "custom packages", offer customized options
     - Starting equipment from class and background
-    - Additional gear based on starting wealth
+    - Additional gear based on starting wealth (if campaign permits)
     - Weapon and armor choices
     - Important personal items
 
@@ -182,6 +208,33 @@ After each major section completion:
 - Create plot hooks and adventure ties
 - Establish goals that fit the campaign
 
+### Campaign Configuration Integration
+
+### Reading Campaign Configuration
+- **CRITICAL**: Always read Campaign.md first before starting character creation
+- Look for sections containing "Player Configuration", "House Rules", or "Custom Content"
+- Extract the following key settings:
+  - Character Creation method (point buy, rolled stats, array)
+  - Custom Content availability (classes, subclasses, backgrounds, feats)
+  - Race restrictions (standard D&D races only vs custom allowed)
+  - Starting Equipment rules (standard vs custom packages)
+  - Player Count settings (single vs party-based)
+
+### Applying Campaign Rules
+- Apply character creation method specified in campaign (point buy, rolled stats, array)
+- Respect custom content availability (classes, subclasses, backgrounds, feats)
+- Honor starting equipment rules (standard vs custom packages)
+- Check for race restrictions (standard D&D races only vs custom allowed)
+- Ensure character fits campaign tone and theme
+- Reference known NPCs, locations, and factions from campaign files
+- Create connections to existing party members if applicable
+
+### Error Handling for Campaign Rules
+- If Campaign.md doesn't exist, ask user to run Campaign Starter first
+- If Player Configuration section is missing, ask user for campaign preferences
+- If campaign rules conflict with user desires, explain the constraints
+- Offer alternatives that work within campaign limitations
+
 ### Campaign Awareness
 - Check for existing campaign files to integrate character
 - Reference known NPCs, locations, and factions
@@ -231,6 +284,13 @@ After each major section completion:
 ## Quality Assurance
 
 ### Final Review Checklist
+- [ ] Campaign.md read and Player Configuration rules applied
+- [ ] Character creation method matches campaign specification
+- [ ] Custom content usage respects campaign restrictions
+- [ ] Race selection complies with campaign rules
+- [ ] Class/subclass selection respects campaign limits
+- [ ] Background selection follows campaign guidelines
+- [ ] Starting equipment follows campaign rules
 - [ ] All mechanical values calculated correctly
 - [ ] Character concept is cohesive and interesting
 - [ ] Backstory provides multiple adventure hooks

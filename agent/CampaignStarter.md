@@ -65,40 +65,40 @@ mkdir -p "$PASCAL_CASE"/{Locations,NPCs,Organizations,Resources,Sessions,Players
 
 ### 3. Campaign Configuration Questions
 
-Ask the user these questions to customize the campaign:
+Ask the user these questions one at a time to customize the campaign. Wait for each answer before proceeding to the next question.
 
-#### Magic System
-- **Magic Level**: High magic (common magical items, many spellcasters), Low magic (rare magic, few spellcasters), or No magic (purely martial campaign)?
-- **Magic Sources**: If magic exists, what are its sources (arcane, divine, primal, psionic, etc.)?
-- **Magical Items**: How common are magical items? Are they available for purchase or only found through adventure?
+#### Magic System Questions
+1. **Magic Level**: What type of magic system do you want - High magic (common magical items, many spellcasters), Low magic (rare magic, few spellcasters), or No magic (purely martial campaign)?
+2. **Magic Sources**: If magic exists, what are its sources (arcane, divine, primal, psionic, etc.)?
+3. **Magical Items**: How common are magical items? Are they available for purchase or only found through adventure?
 
-#### Player Configuration
-- **Player Count**: Single player campaign or party-based?
-- **Character Creation**: Use @character-creator for guided character creation - Standard point buy, rolled stats, or array?
-- **Custom Content**: Any custom classes, subclasses, backgrounds, or feats available?
-- **Starting Equipment**: Standard starting equipment or custom packages?
+#### Player Configuration Questions
+4. **Player Count**: Do you want a single player campaign or party-based?
+5. **Character Creation**: For character creation using @character-creator - do you prefer Standard point buy, rolled stats, or array?
+6. **Custom Content**: Any custom classes, subclasses, backgrounds, or feats available?
+7. **Starting Equipment**: Standard starting equipment or custom packages?
 
-#### World Setting
-- **Technology Level**: Stone age, medieval, renaissance, or steampunk/fantasy-tech?
-- **Races Available**: Standard D&D races only, or custom races allowed?
-- **Religion**: Standard pantheon, custom deities, or no divine intervention?
-- **Political Structure**: Kingdoms, city-states, tribal societies, or other governance?
+#### World Setting Questions
+8. **Technology Level**: What technology level do you want - Stone age, medieval, renaissance, or steampunk/fantasy-tech?
+9. **Races Available**: Standard D&D races only, or custom races allowed?
+10. **Religion**: Standard pantheon, custom deities, or no divine intervention?
+11. **Political Structure**: Kingdoms, city-states, tribal societies, or other governance?
 
-#### Campaign Style
-- **Tone**: Heroic fantasy, dark/gritty, political intrigue, mystery, horror, or comedy?
-- **Pacing**: Fast-paced action, slow-burn investigation, or sandbox exploration?
-- **Difficulty**: Challenging, moderate, or casual?
-- **Death Rules**: Standard D&D death saves, more lenient, or more lethal?
+#### Campaign Style Questions
+12. **Tone**: What campaign tone do you prefer - Heroic fantasy, dark/gritty, political intrigue, mystery, horror, or comedy?
+13. **Pacing**: Fast-paced action, slow-burn investigation, or sandbox exploration?
+14. **Difficulty**: Challenging, moderate, or casual?
+15. **Death Rules**: Standard D&D death saves, more lenient, or more lethal?
 
-#### House Rules and Modifications
-- **Combat Rules**: Any modifications to initiative, critical hits, or combat flow?
-- **Skill Checks**: Advantage/disadvantage modifications, critical successes/failures on skill checks?
-- **Rest Rules**: Standard short/long rest, or modified rest mechanics?
-- **Experience System**: Standard XP, milestone leveling, or custom progression?
-- **Equipment**: Custom equipment rules, encumbrance enforcement, or starting wealth modifications?
-- **Spellcasting**: Any modifications to spell components, concentration, or spell learning?
-- **Healing**: Standard healing rules, or modified recovery mechanics?
-- **Other Rules**: Any other house rules or D&D modifications the group uses?
+#### House Rules and Modifications Questions
+16. **Combat Rules**: Any modifications to initiative, critical hits, or combat flow?
+17. **Skill Checks**: Advantage/disadvantage modifications, critical successes/failures on skill checks?
+18. **Rest Rules**: Standard short/long rest, or modified rest mechanics?
+19. **Experience System**: Standard XP, milestone leveling, or custom progression?
+20. **Equipment**: Custom equipment rules, encumbrance enforcement, or starting wealth modifications?
+21. **Spellcasting**: Any modifications to spell components, concentration, or spell learning?
+22. **Healing**: Standard healing rules, or modified recovery mechanics?
+23. **Other Rules**: Any other house rules or D&D modifications the group uses?
 
 ### 5. Core Files to Create
 
@@ -270,7 +270,7 @@ Example invocation:
 
 ## Usage Instructions
 
-1. **Configuration Phase**: Ask all campaign configuration questions first to understand the user's preferences
+1. **Configuration Phase**: Ask campaign configuration questions one at a time, waiting for each answer before proceeding to the next
 2. **File Structure Creation**: Create the campaign directory structure using PascalCase conversion
 3. **File Creation**: Use the templates in the `~/.config/opencode/template/` folder to create the campaign structure
 4. **Content Generation**: Generate content based on the configuration answers
