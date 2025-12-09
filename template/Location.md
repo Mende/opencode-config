@@ -1,3 +1,10 @@
+---
+entity_id: LOC-XXX
+entity_type: Location
+created_date: YYYY-MM-DD
+last_modified: YYYY-MM-DD
+---
+
 # Location Template
 
 ## Basic Information

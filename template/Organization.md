@@ -1,3 +1,10 @@
+---
+entity_id: ORG-XXX
+entity_type: Organization
+created_date: YYYY-MM-DD
+last_modified: YYYY-MM-DD
+---
+
 # Organization Template
 
 ## Basic Information

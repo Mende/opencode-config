@@ -84,14 +84,15 @@ Example invocation:
 
 Use the NPC template from `~/.config/opencode/template/NPC.md` and ensure all sections are completed:
 
+- **Frontmatter**: entity_id (NPC-XXX), entity_type, created_date, last_modified
 - **Basic Information**: Name, race, class, alignment, age
 - **Physical Description**: Appearance, clothing, mannerisms
 - **Background**: History, motivation, goals, secrets
 - **Personality**: Traits, ideals, bonds, flaws
 - **Game Mechanics**: Stats, skills, equipment, abilities
 - **Roleplaying Notes**: Voice, behavior, plot hooks
-- **Relationships**: Connections to other NPCs/factions
-- **Location**: Where they can typically be found
+- **Relationships**: Connections to other NPCs/factions (use entity IDs)
+- **Location**: Where they can typically be found (use location entity ID if applicable)
 
 ### 4. File Creation Process
 
@@ -99,9 +100,11 @@ Use the NPC template from `~/.config/opencode/template/NPC.md` and ensure all se
 
 1. **Verify Campaign Structure**: Ensure the target campaign folder exists with an `NPCs/` subfolder
 2. **Check Name Uniqueness**: Verify the chosen name doesn't conflict with existing NPCs (read only from campaign folder)
-3. **Create NPC File**: Use the template to create the NPC file ONLY in the NPCs folder
-4. **Template Validation**: Ensure all required sections are filled out
-5. **Consistency Check**: Run validation to check for issues
+3. **Assign Entity ID**: Read entity_ids.yaml, increment npc_counter, assign NPC-XXX ID
+4. **Create NPC File**: Use the template to create the NPC file ONLY in the NPCs folder with frontmatter ID
+5. **Update ID Tracker**: Save updated npc_counter back to entity_ids.yaml
+6. **Template Validation**: Ensure all required sections are filled out including frontmatter
+7. **Consistency Check**: Run validation to check for issues
 
 ### 5. Integration with Campaign
 
@@ -133,14 +136,17 @@ After creating an NPC, automatically run consistency validation:
 ### 7. Quality Assurance Checklist
 
 - [ ] Unique name generated using `@name-generator`
+- [ ] Entity ID assigned from entity_ids.yaml tracker
+- [ ] Frontmatter completed with entity_id, entity_type, dates
 - [ ] All template sections completed
 - [ ] Physical description is vivid and distinctive
 - [ ] Background is coherent and engaging
 - [ ] Personality traits are consistent
 - [ ] Game mechanics appropriate for role
 - [ ] Plot hooks provide adventure opportunities
-- [ ] Relationships to other NPCs defined
-- [ ] Location placement makes sense
+- [ ] Relationships to other NPCs defined using entity IDs
+- [ ] Location placement makes sense (use location entity ID)
+- [ ] entity_ids.yaml updated with new npc_counter
 - [ ] Consistency validation passed
 
 ## Usage Instructions

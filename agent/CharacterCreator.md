@@ -185,9 +185,11 @@ What drives your character? What do they care about most?
 ### File Generation
 After each major section completion:
 1. Create/update the character file in appropriate campaign folder
-2. Fill in completed sections of Player.md template
-3. Leave placeholder notes for incomplete sections
-4. Provide progress update to user
+2. Assign entity ID from entity_ids.yaml tracker (PC-XXX format)
+3. Fill in completed sections of Player.md template including frontmatter
+4. Update entity_ids.yaml with new player_counter
+5. Leave placeholder notes for incomplete sections
+6. Provide progress update to user
 
 ## Advanced Features
 
@@ -258,6 +260,7 @@ After each major section completion:
 ### File Management
 - Character files created in: `<Campaign>/Players/`
 - Naming convention: `[PlayerName]_[CharacterName].md`
+- Entity ID assignment from entity_ids.yaml tracker (PC-XXX format)
 - Auto-backup during creation process
 - Integration with existing campaign structure
 

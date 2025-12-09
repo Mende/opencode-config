@@ -1,3 +1,10 @@
+---
+entity_id: NPC-XXX
+entity_type: NPC
+created_date: YYYY-MM-DD
+last_modified: YYYY-MM-DD
+---
+
 # NPC Template
 
 ## Basic Information

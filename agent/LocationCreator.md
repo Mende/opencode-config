@@ -85,14 +85,15 @@ Example invocation:
 
 Use the Location template from `~/.config/opencode/template/Location.md` and ensure all sections are completed:
 
+- **Frontmatter**: entity_id (LOC-XXX), entity_type, created_date, last_modified
 - **Basic Information**: Name, type, size, population, government
 - **Physical Description**: Geography, architecture, landmarks, atmosphere
 - **Society and Culture**: Inhabitants, economy, customs, history
 - **Points of Interest**: Shops, buildings, adventure sites, hidden features
 - **Game Mechanics**: Challenge rating, resources, encounters, treasure
-- **Connections**: Trade routes, political relationships, travel options
+- **Connections**: Trade routes, political relationships, travel options (use entity IDs)
 - **Plot Hooks**: Adventure opportunities and story potential
-- **NPCs**: Key residents and their roles
+- **NPCs**: Key residents and their roles (use NPC entity IDs)
 
 ### 4. File Creation Process
 
@@ -100,9 +101,11 @@ Use the Location template from `~/.config/opencode/template/Location.md` and ens
 
 1. **Verify Campaign Structure**: Ensure the target campaign folder exists with a `Locations/` subfolder
 2. **Check Name Uniqueness**: Verify the chosen name doesn't conflict with existing locations (read only from campaign folder)
-3. **Create Location File**: Use the template to create the location file ONLY in the Locations folder
-4. **Template Validation**: Ensure all required sections are filled out
-5. **Consistency Check**: Run validation to check for issues
+3. **Assign Entity ID**: Read entity_ids.yaml, increment location_counter, assign LOC-XXX ID
+4. **Create Location File**: Use the template to create the location file ONLY in the Locations folder with frontmatter ID
+5. **Update ID Tracker**: Save updated location_counter back to entity_ids.yaml
+6. **Template Validation**: Ensure all required sections are filled out including frontmatter
+7. **Consistency Check**: Run validation to check for issues
 
 ### 5. Integration with Campaign
 
@@ -154,14 +157,18 @@ After creating a location, run consistency validation:
 ### 8. Quality Assurance Checklist
 
 - [ ] Unique name generated using `@name-generator`
+- [ ] Entity ID assigned from entity_ids.yaml tracker
+- [ ] Frontmatter completed with entity_id, entity_type, dates
 - [ ] All template sections completed
 - [ ] Physical description is vivid and immersive
 - [ ] Society and culture are coherent
 - [ ] Points of interest provide adventure opportunities
 - [ ] Game mechanics appropriate for party level
 - [ ] Plot hooks integrate with campaign themes
-- [ ] NPCs have clear roles and purposes
+- [ ] NPCs have clear roles and purposes (use NPC entity IDs)
 - [ ] Geographic placement makes sense
+- [ ] Connections use entity IDs for organizations/locations
+- [ ] entity_ids.yaml updated with new location_counter
 - [ ] Consistency validation passed
 
 ## Usage Instructions

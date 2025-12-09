@@ -1,3 +1,10 @@
+---
+entity_id: PC-XXX
+entity_type: Player
+created_date: YYYY-MM-DD
+last_modified: YYYY-MM-DD
+---
+
 # Player Character Template
 
 ## Basic Information

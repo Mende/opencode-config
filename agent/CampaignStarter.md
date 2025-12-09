@@ -51,6 +51,26 @@ PASCAL_CASE=$(echo "$CAMPAIGN_NAME" | sed 's/[^a-zA-Z0-9 ]//g' | sed 's/\b\([a-z
 mkdir -p "$PASCAL_CASE"/{Locations,NPCs,Organizations,Resources,Sessions,Players}
 ```
 
+#### Entity ID Tracking System
+
+Create an ID tracking file to manage unique entity IDs:
+
+```bash
+# Create entity ID tracking file
+echo "# Entity ID Tracking
+npc_counter: 0
+location_counter: 0
+organization_counter: 0
+player_counter: 0
+" > "$PASCAL_CASE"/entity_ids.yaml
+```
+
+**ID Format Rules:**
+- NPCs: NPC-001, NPC-002, etc.
+- Locations: LOC-001, LOC-002, etc.  
+- Organizations: ORG-001, ORG-002, etc.
+- Players: PC-001, PC-002, etc.
+
 #### Directory Structure
 
 <CAMPAIGN_NAME>/
@@ -139,10 +159,12 @@ Create a todo list to create each location individually using `@location-creator
 **IMPORTANT**
 LOCATION NAMES MUST BE UNIQUE!
 ONLY CREATE 1 LOCATION PER USE OF @location-creator!
+EACH LOCATION MUST RECEIVE A UNIQUE LOC-XXX ID FROM THE entity_ids.yaml TRACKER!
 
 The Location Creator will handle:
 - Unique name generation using `@name-generator`
-- Template compliance with `~/.config/opencode/template/Location.md`
+- Entity ID assignment from entity_ids.yaml tracking file
+- Template compliance with `~/.config/opencode/template/Location.md` (including frontmatter ID)
 - Proper integration with campaign setting (reading only from campaign folder)
 - Consistency validation with `@consistency-checker`
 
@@ -152,8 +174,6 @@ Example todo list items:
 - Create surrounding forest region
 
 Example invocation for each location:
-```
-@location-creator Create a starting town for a level 1 campaign. Location Type: Village, Setting: Medieval Fantasy, Population: ~200. Provide context about the campaign setting and existing locations.
 ```
 @location-creator Create a starting town for a level 1 campaign. Location Type: Village, Setting: Medieval Fantasy, Population: ~200. Provide context about the campaign setting and existing locations.
 ```
@@ -167,10 +187,12 @@ Create a todo list to create each key NPC individually using `@npc-creator`.
 **IMPORTANT**
 NPC NAMES MUST BE UNIQUE!
 ONLY CREATE 1 NPC PER USE OF @npc-creator!
+EACH NPC MUST RECEIVE A UNIQUE NPC-XXX ID FROM THE entity_ids.yaml TRACKER!
 
 The NPC Creator will handle:
 - Unique name generation using `@name-generator`
-- Template compliance with `~/.config/opencode/template/NPC.md`
+- Entity ID assignment from entity_ids.yaml tracking file
+- Template compliance with `~/.config/opencode/template/NPC.md` (including frontmatter ID)
 - Proper integration with campaign setting (reading only from campaign folder)
 - Consistency validation with `@consistency-checker`
 
@@ -214,10 +236,12 @@ Create a todo list to create each organization individually using `@organization
 **IMPORTANT**
 FACTION/GUILD NAMES MUST BE DISTINCT AND UNIQUE!
 ONLY CREATE 1 ORGANIZATION PER USE OF @organization-creator!
+EACH ORGANIZATION MUST RECEIVE A UNIQUE ORG-XXX ID FROM THE entity_ids.yaml TRACKER!
 
 The Organization Creator will handle:
 - Unique name generation using `@name-generator`
-- Template compliance with `~/.config/opencode/template/Organization.md`
+- Entity ID assignment from entity_ids.yaml tracking file
+- Template compliance with `~/.config/opencode/template/Organization.md` (including frontmatter ID)
 - Proper integration with campaign setting (reading only from campaign folder)
 - Consistency validation with `@consistency-checker`
 

@@ -91,11 +91,12 @@ Example invocation:
 
 Use the Organization template from `~/.config/opencode/template/Organization.md` and ensure all sections are completed:
 
+- **Frontmatter**: entity_id (ORG-XXX), entity_type, created_date, last_modified
 - **Basic Information**: Name, type, purpose, alignment, size
 - **Leadership and Structure**: Hierarchy, key members, decision making
 - **Operations and Activities**: Headquarters, territory, activities, resources
 - **Membership and Recruitment**: Requirements, benefits, obligations, recruitment
-- **Relationships and Politics**: Allies, rivals, government relations, public perception
+- **Relationships and Politics**: Allies, rivals, government relations, public perception (use entity IDs)
 - **Game Mechanics**: Reputation, services, quests, rewards
 - **History**: Founding, major events, evolution over time
 - **Secrets**: Hidden information known only to members
@@ -106,9 +107,11 @@ Use the Organization template from `~/.config/opencode/template/Organization.md`
 
 1. **Verify Campaign Structure**: Ensure the target campaign folder exists with an `Organizations/` subfolder
 2. **Check Name Uniqueness**: Verify the chosen name doesn't conflict with existing organizations (read only from campaign folder)
-3. **Create Organization File**: Use the template to create the organization file ONLY in the Organizations folder
-4. **Template Validation**: Ensure all required sections are filled out
-5. **Consistency Check**: Run validation to check for issues
+3. **Assign Entity ID**: Read entity_ids.yaml, increment organization_counter, assign ORG-XXX ID
+4. **Create Organization File**: Use the template to create the organization file ONLY in the Organizations folder with frontmatter ID
+5. **Update ID Tracker**: Save updated organization_counter back to entity_ids.yaml
+6. **Template Validation**: Ensure all required sections are filled out including frontmatter
+7. **Consistency Check**: Run validation to check for issues
 
 ### 5. Integration with Campaign
 
@@ -178,14 +181,17 @@ After creating an organization, run consistency validation:
 ### 8. Quality Assurance Checklist
 
 - [ ] Unique name generated using `@name-generator`
+- [ ] Entity ID assigned from entity_ids.yaml tracker
+- [ ] Frontmatter completed with entity_id, entity_type, dates
 - [ ] All template sections completed
 - [ ] Purpose and activities are coherent
 - [ ] Leadership structure is logical
 - [ ] Membership requirements make sense
-- [ ] Relationships with other groups defined
+- [ ] Relationships with other groups defined using entity IDs
 - [ ] Game mechanics provide meaningful interaction
 - [ ] Plot hooks integrate with campaign themes
-- [ ] Geographic placement is appropriate
+- [ ] Geographic placement is appropriate (use location entity ID)
+- [ ] entity_ids.yaml updated with new organization_counter
 - [ ] Consistency validation passed
 
 ## Usage Instructions

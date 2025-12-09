@@ -47,11 +47,14 @@ Before performing consistency checks, the agent must:
 #### **Entity Existence Validation**
 For every NPC, Organization, and Location mentioned in any campaign file:
 
-- **Verify Data Sheet Exists**: Check that each referenced entity has a corresponding .md file in the appropriate folder
-- **Validate Template Compliance**: Ensure each data sheet follows the proper template structure
+- **Verify Data Sheet Exists**: Check that each referenced entity has a corresponding .md file in appropriate folder
+- **Validate Template Compliance**: Ensure each data sheet follows proper template structure
 - **Check Required Fields**: Verify all mandatory template sections are filled out
+- **Validate Entity IDs**: Ensure all entities have proper frontmatter with unique entity_id
+- **Check ID Format**: Verify IDs follow correct format (NPC-XXX, LOC-XXX, ORG-XXX, PC-XXX)
 - **Identify Orphaned References**: Flag entities mentioned in text but lacking data sheets
 - **Duplicate Name Check**: Ensure no NPCs have identical first names that could cause player confusion
+- **ID Uniqueness**: Verify no duplicate entity IDs exist across any entity type
 - **Automatic Name Resolution**: When DUPLICATE_NAME issues are found, immediately call @name_generator to fix conflicts
 
 #### **Missing Entity Report**
@@ -116,6 +119,9 @@ Return only identified inconsistencies as a concise list using these four issue 
 - **MISSING_DATA_SHEET**: A referenced NPC, Location or Organization does not have a data sheet
 - **PERSONALITY_VIOLATION**: An NPC is listed as a close ally but does something harmful to the player
 - **STORY_INCONSISTENCY**: References to locations, NPCs or organizations that refer to the same thing but with meaningful differences
+- **MISSING_ENTITY_ID**: Entity exists but lacks proper frontmatter with entity_id
+- **DUPLICATE_ENTITY_ID**: Two or more entities share the same entity_id
+- **INVALID_ID_FORMAT**: Entity ID does not follow correct format (NPC-XXX, LOC-XXX, ORG-XXX, PC-XXX)
 
 **Format:**
 - **[Issue Type]**: Brief description of the specific inconsistency
@@ -204,11 +210,14 @@ When called by Name Generator:
 Before completing consistency validation, ensure:
 
 - [ ] **MISSING_DATA_SHEET**: All referenced entities have corresponding data sheets
+- [ ] **MISSING_ENTITY_ID**: All entities have proper frontmatter with entity_id
+- [ ] **DUPLICATE_ENTITY_ID**: No two entities share the same entity_id
+- [ ] **INVALID_ID_FORMAT**: All entity IDs follow correct format (NPC-XXX, LOC-XXX, ORG-XXX, PC-XXX)
 - [ ] **PERSONALITY_VIOLATION**: Ally NPCs don't perform actions harmful to players
 - [ ] **DUPLICATE_NAME**: No NPCs share identical first names (automatically resolve if found)
 - [ ] **STORY_INCONSISTENCY**: References to same entities are consistent across files
 - [ ] All data sheets follow proper template structure
-- [ ] Cross-references between entities use consistent naming
+- [ ] Cross-references between entities use entity IDs where appropriate
 - [ ] Ally relationships are properly maintained
 - [ ] New entities from sessions are identified for data sheet creation
 - [ ] Critical inconsistencies are flagged with appropriate issue type labels
