@@ -1,8 +1,8 @@
 ---
-entity_id: LOC-XXX
-entity_type: Location
-created_date: YYYY-MM-DD
-last_modified: YYYY-MM-DD
+id: "[LocationId]"
+name: "[Location Name]"
+type: "[city/dungeon/forest/etc]"
+parentLocation: "[Location Id]"
 ---
 
 # Location Template
@@ -10,7 +10,7 @@ last_modified: YYYY-MM-DD
 ## Basic Information
 - **Name:** 
 - **Type:** [City/Town/Village/Dungeon/Forest/Mountain/etc.]
-- **Region:** 
+- **Region:** [Parent Location ID]
 - **Size:** 
 - **Population:** 
 - **Government:** 

@@ -1,6 +1,10 @@
 ---
-entity_id: ORG-XXX
-entity_type: Organization
+
+id: org_001
+name: "[Organization Name]"
+type: "[guild/cult/faction/etc]"
+headquarters: "[Location ID]"
+status: "active"
 created_date: YYYY-MM-DD
 last_modified: YYYY-MM-DD
 ---

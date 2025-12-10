@@ -1,6 +1,9 @@
 ---
-entity_id: PC-XXX
-entity_type: Player
+id: PC-001
+name: "[Character Name]"
+class: "[Class]"
+level: 1
+status: "active"
 created_date: YYYY-MM-DD
 last_modified: YYYY-MM-DD
 ---

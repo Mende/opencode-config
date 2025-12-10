@@ -20,19 +20,18 @@
 
 ## Character Development
 ### Player Characters
-- **[Character Name]:** 
-- **[Character Name]:** 
-- **[Character Name]:** 
+- **[Character Name] - [Character Id]:** 
+- **[Character Name] - [Character Id]:** 
 
 ### NPCs Encountered
-- **[NPC Name]:** 
-- **[NPC Name]:** 
-- **[NPC Name]:** 
+- **[NPC Name] - [NPC ID]:** 
+- **[NPC Name] - [NPC ID]:**
+- **[NPC Name] - [NPC ID]:**
 
 ## Locations Visited
-- **[Location Name]:** 
-- **[Location Name]:** 
-- **[Location Name]:** 
+- **[Location Name] - [Location Id]:** 
+- **[Location Name] - [Location Id]:** 
+- **[Location Name] - [Location Id]:** 
 
 ## Combat Encounters
 ### [Encounter Name/Location]
@@ -73,14 +72,14 @@
 
 ## Current Status
 ### Player Characters
-- **[Character Name]:** 
-- **[Character Name]:** 
-- **[Character Name]:** 
+- **[Character Name] - [Character Id]:** 
+- **[Character Name] - [Character Id]:** 
+- **[Character Name] - [Character Id]:** 
 
 ### Key NPCs
-- **[NPC Name]:** 
-- **[NPC Name]:** 
-- **[NPC Name]:** 
+- **[NPC Name] - [NPC Id]:** 
+- **[NPC Name] - [NPC Id]:** 
+- **[NPC Name] - [NPC Id]:** 
 
 ### World State
 - **Factions:** 

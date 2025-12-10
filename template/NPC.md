@@ -1,6 +1,11 @@
 ---
-entity_id: NPC-XXX
-entity_type: NPC
+# Non-Player Characters
+id: npc_001
+name: "[NPC Name]"
+role: "[Role/Function]"
+location: "[Location Id]"
+status: "alive"
+affiliations: [Organization Ids]
 created_date: YYYY-MM-DD
 last_modified: YYYY-MM-DD
 ---
